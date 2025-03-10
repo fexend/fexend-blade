@@ -41,53 +41,53 @@ class SidebarComposer
         return [
             'title' => 'Dashboard',
             'route_prefix' => 'dashboard',
-            'route_active' => in_array(request()->route()->getName(), ['dashboard.dashboard-1', 'dashboard.dashboard-2', 'dashboard.dashboard-3']),
+            'route_active' => in_array(request()->route()->getName(), ['dashboard', 'dashboard', 'dashboard']),
             'menus' => [
                 [
                     'title' => 'Dashboard',
-                    'route' => 'dashboard.dashboard-1',
-                    'route_active' => in_array(request()->route()->getName(), ['dashboard.dashboard-1']),
-                    'permission_names' => ['dashboard.dashboard-1'],
+                    'route' => 'dashboard',
+                    'route_active' => in_array(request()->route()->getName(), ['dashboard']),
+                    'permission_names' => ['dashboard'],
                 ],
-                [
-                    'title' => 'Dashboard 2',
-                    'route' => 'dashboard.dashboard-2',
-                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-2',
-                    'permission_names' => ['dashboard.dashboard-2'],
-                ],
-                [
-                    'title' => 'Dashboard 3',
-                    'route' => 'dashboard.dashboard-3',
-                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-3',
-                    'permission_names' => ['dashboard.dashboard-3'],
-                ],
-                [
-                    'title' => 'Sub Menu',
-                    'route_active' => in_array(request()->route()->getName(), ['dashboard.dashboard-4', 'dashboard.dashboard-5', 'dashboard.dashboard-6']),
-                    'permission_names' => ['dashboard.dashboard-4', 'dashboard.dashboard-5', 'dashboard.dashboard-6'],
-                    'sub_menus' => [
-                        [
-                            'title' => 'Dashboard 4',
-                            'route' => 'dashboard.dashboard-4',
-                            'route_active' => request()->route()->getName() === 'dashboard.dashboard-4',
-                            'permission_names' => ['dashboard.dashboard-4'],
-                        ],
-                        [
-                            'title' => 'Dashboard 5',
-                            'route' => 'dashboard.dashboard-5',
-                            'route_active' => request()->route()->getName() === 'dashboard.dashboard-5',
-                            'permission_names' => ['dashboard.dashboard-5'],
-                        ],
-                        [
-                            'title' => 'Dashboard 6',
-                            'route' => 'dashboard.dashboard-6',
-                            'route_active' => request()->route()->getName() === 'dashboard.dashboard-6',
-                            'permission_names' => [
-                                'dashboard.dashboard-6'
-                            ]
-                        ],
-                    ],
-                ],
+                // [
+                //     'title' => 'Dashboard 2',
+                //     'route' => 'dashboard.dashboard-2',
+                //     'route_active' => request()->route()->getName() === 'dashboard.dashboard-2',
+                //     'permission_names' => ['dashboard.dashboard-2'],
+                // ],
+                // [
+                //     'title' => 'Dashboard 3',
+                //     'route' => 'dashboard.dashboard-3',
+                //     'route_active' => request()->route()->getName() === 'dashboard.dashboard-3',
+                //     'permission_names' => ['dashboard.dashboard-3'],
+                // ],
+                // [
+                //     'title' => 'Sub Menu',
+                //     'route_active' => in_array(request()->route()->getName(), ['dashboard.dashboard-4', 'dashboard.dashboard-5', 'dashboard.dashboard-6']),
+                //     'permission_names' => ['dashboard.dashboard-4', 'dashboard.dashboard-5', 'dashboard.dashboard-6'],
+                //     'sub_menus' => [
+                //         [
+                //             'title' => 'Dashboard 4',
+                //             'route' => 'dashboard.dashboard-4',
+                //             'route_active' => request()->route()->getName() === 'dashboard.dashboard-4',
+                //             'permission_names' => ['dashboard.dashboard-4'],
+                //         ],
+                //         [
+                //             'title' => 'Dashboard 5',
+                //             'route' => 'dashboard.dashboard-5',
+                //             'route_active' => request()->route()->getName() === 'dashboard.dashboard-5',
+                //             'permission_names' => ['dashboard.dashboard-5'],
+                //         ],
+                //         [
+                //             'title' => 'Dashboard 6',
+                //             'route' => 'dashboard.dashboard-6',
+                //             'route_active' => request()->route()->getName() === 'dashboard.dashboard-6',
+                //             'permission_names' => [
+                //                 'dashboard.dashboard-6'
+                //             ]
+                //         ],
+                //     ],
+                // ],
             ],
         ];
     }
