@@ -20,6 +20,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerBladeDirectives();
+        $this->registerViewComposers();
     }
 
     /**
@@ -30,5 +31,13 @@ class ViewServiceProvider extends ServiceProvider
         \App\View\Directives\DateDirective::load();
         \App\View\Directives\NumberDirective::load();
         \App\View\Directives\StrDirective::load();
+    }
+
+    /**
+     * Register the view composers.
+     */
+    protected function registerViewComposers(): void
+    {
+        \Illuminate\Support\Facades\View::composer('components.layouts.sidebar', 'App\View\Composers\SidebarComposer');
     }
 }
