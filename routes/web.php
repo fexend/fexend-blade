@@ -1,10 +1,18 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', fn() => redirect()->route('dashboard'));
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+
+    // $request->validate([
+    //     'name' => 'required',
+    //     'email' => 'required|email',
+    //     'password' => 'required|min:8',
+    // ]);
+
     return view('welcome');
 })->name('dashboard');
 
