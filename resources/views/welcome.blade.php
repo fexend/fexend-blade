@@ -5,11 +5,13 @@
         </div>
         <div class="card-body">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <x-textarea name="textarea" placeholder="textarea...." label="Textarea" required></x-textarea>
-                <x-select label="Select" required>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                <x-input data-flatpickr="" name="ok" label='date' />
+                <x-input data-flatpickr="year" name="ok" label='date' />
+                <x-input data-flatpickr="time" name="ok" label='date' />
+                <x-select name="name" label="select" class="form-select2 select2" data-select2="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </x-select>
             </div>
         </div>
