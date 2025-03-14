@@ -5,11 +5,30 @@
         </div>
         <div class="card-body">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {{-- <x-input type="file" name="ok" label='date' /> --}}
-                {{-- <x-drag-and-drop-input /> --}}
-                <x-radio-input name="label" value="label_1">Label</x-radio-input>
-                <x-radio-input name="label" value="label_2">Label</x-radio-input>
-                <x-radio-input name="label" value="label_3" checked>Label</x-radio-input>
+                <x-radio-input name="radio_basic" value="label_1">Label</x-radio-input>
+                <x-radio-input name="radio_basic" value="label_2">Label</x-radio-input>
+                <x-radio-input name="radio_basic" value="label_3" checked>Label</x-radio-input>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <x-radio-input style="button" name="radio_button" variant="success" value="label_1" id="label_1">Label</x-radio-input>
+                <x-radio-input style="button" name="radio_button" variant="success" value="label_2" id="label_2">Label</x-radio-input>
+                <x-radio-input style="button" name="radio_button" variant="success" value="label_3" id="label_3">Label</x-radio-input>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <x-radio-input style="card" name="radio_card" value="label_1" id="label_1_card">
+                    <p>Radio</p>
+                    <p>sub</p>
+                </x-radio-input>
+                <x-radio-input style="card" name="radio_card" value="label_2" id="label_2_card">
+                    <p>Radio</p>
+                    <p>sub</p>
+                </x-radio-input>
+                <x-radio-input style="card" name="radio_card" value="label_3" id="label_3_card">
+                    <p>Radio</p>
+                    <p>sub</p>
+                </x-radio-input>
             </div>
         </div>
     </div>
