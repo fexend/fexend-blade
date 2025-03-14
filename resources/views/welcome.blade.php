@@ -5,30 +5,39 @@
         </div>
         <div class="card-body">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <x-radio-input name="radio_basic" value="label_1">Label</x-radio-input>
-                <x-radio-input name="radio_basic" value="label_2">Label</x-radio-input>
-                <x-radio-input name="radio_basic" value="label_3" checked>Label</x-radio-input>
+                <x-checkbox-input name="checkbox_basic" value="label_1">Label</x-checkbox-input>
+                <x-checkbox-input name="checkbox_basic" value="label_2">Label</x-checkbox-input>
+                <x-checkbox-input name="checkbox_basic" value="label_3" checked>Label</x-checkbox-input>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <x-radio-input style="button" name="radio_button" variant="success" value="label_1" id="label_1">Label</x-radio-input>
-                <x-radio-input style="button" name="radio_button" variant="success" value="label_2" id="label_2">Label</x-radio-input>
-                <x-radio-input style="button" name="radio_button" variant="success" value="label_3" id="label_3">Label</x-radio-input>
+            <div class="flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
+                <x-checkbox-input name="checkbox_divider" style="divider" id="checkbox-divider-1" value="label_1">
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
+                <x-checkbox-input name="checkbox_divider" style="divider" id="checkbox-divider-2" value="label_2">
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
+                <x-checkbox-input name="checkbox_divider" style="divider" id="checkbox-divider-3" value="label_3" checked>
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <x-radio-input style="card" name="radio_card" value="label_1" id="label_1_card">
-                    <p>Radio</p>
-                    <p>sub</p>
-                </x-radio-input>
-                <x-radio-input style="card" name="radio_card" value="label_2" id="label_2_card">
-                    <p>Radio</p>
-                    <p>sub</p>
-                </x-radio-input>
-                <x-radio-input style="card" name="radio_card" value="label_3" id="label_3_card">
-                    <p>Radio</p>
-                    <p>sub</p>
-                </x-radio-input>
+            <div class="flex flex-col">
+                <x-checkbox-input name="checkbox_card" style="card" variant="danger" id="checkbox-card-1" value="label_1">
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
+                <x-checkbox-input name="checkbox_card" style="card" variant="danger" id="checkbox-card-2" value="label_2">
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
+                <x-checkbox-input name="checkbox_card" style="card" variant="danger" id="checkbox-card-3" value="label_3" checked>
+                    <h4>Label</h4>
+                    <p>Variant</p>
+                </x-checkbox-input>
             </div>
         </div>
     </div>
