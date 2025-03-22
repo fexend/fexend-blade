@@ -48,16 +48,6 @@ body {
 html.dark body {
     @apply bg-background-dark text-foreground;
 }
-
-* {
-    @apply transition-colors duration-200;
-}
-
-/* Transitions */
-/* .transition-default {
-	@apply transition-all duration-200;
-} */
-
 /* Group Hover Effects */
 .group:hover span {
     @apply visible;
