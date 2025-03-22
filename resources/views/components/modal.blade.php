@@ -11,6 +11,22 @@
     'triggerButtonText' => 'Open Modal',
 ])
 
+@php
+    $size = [
+        'sm' => 'modal-sm',
+        'md' => 'modal-md',
+        'lg' => 'modal-lg',
+        'xl' => 'modal-xl',
+        '2xl' => 'modal-2xl',
+        '3xl' => 'modal-3xl',
+        '4xl' => 'modal-4xl',
+        '5xl' => 'modal-5xl',
+        '6xl' => 'modal-6xl',
+        '7xl' => 'modal-7xl',
+        'full' => 'modal-full',
+    ][$size];
+@endphp
+
 <div x-data="{
     open: false,
     position: '{{ $position }}',
@@ -50,21 +66,10 @@
         'modal-bottom-left': position === 'bottom-left',
         'modal-bottom-center': position === 'bottom-center',
         'modal-bottom-right': position === 'bottom-right',
-        'modal-sm': '{{ $size }}'
-        === 'sm',
-        'modal-md': '{{ $size }}'
-        === 'md',
-        'modal-lg': '{{ $size }}'
-        === 'lg',
-        'modal-xl': '{{ $size }}'
-        === 'xl',
-        'modal-full': '{{ $size }}'
-        === 'full',
-    }" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform translate-y-4" role="dialog" aria-modal="true" aria-labelledby="{{ $id }}-title">
+    }" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform translate-y-4" role="dialog" aria-modal="true" aria-labelledby="{{ $id }}-title">
 
         <!-- Modal -->
-        <div class="modal {{ $type === 'success' ? 'modal-success' : '' }} {{ $type === 'error' || $type === 'danger' ? 'modal-danger' : '' }}" @click.stop>
+        <div class="modal {{ $type === 'success' ? 'modal-success' : '' }} {{ $type === 'error' || $type === 'danger' ? 'modal-danger' : '' }} {{ $size }}" @click.stop>
             @if ($title || $showCloseButton)
                 <!-- Modal Header -->
                 <div class="modal-header">
