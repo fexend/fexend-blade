@@ -88,7 +88,8 @@
             <div class="sticky inset-x-0 bottom-0 border-t border-gray-100 dark:border-gray-700 bg-foreground dark:bg-background-dark p-2">
                 <!-- Logout -->
                 <div class="relative" x-data="{ tooltip: false }">
-                    <form action="#">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
                         <button type="submit" class="group relative flex w-full justify-center rounded-sm px-2 py-1.5 text-sm text-gray-500 hover:bg-primary dark:hover:bg-primary-dark dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" @mouseover="tooltip = true" @mouseleave="tooltip = false">
                             <!-- Logout Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

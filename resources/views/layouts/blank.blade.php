@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @php
+        $isSidebarOpen = $attributes->get('isSidebarOpen', false);
+        $title = $attributes->get('title', 'Dashboard');
+        $pageDescription = $attributes->get('pageDescription', 'Fexend Dashboard description');
+    @endphp
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $title ?? '' }} | {{ config('app.name') }}</title>
