@@ -22,11 +22,6 @@ class EmailVerification extends Model
         'user_id',
     ];
 
-    public function sendEmailVerificationNotification(): void
-    {
-        Mail::to($this->user->email)->send(new EmailVerificationMail($this->user, $this->token));
-    }
-
     /**
      * Get the user that owns the EmailVerification
      *

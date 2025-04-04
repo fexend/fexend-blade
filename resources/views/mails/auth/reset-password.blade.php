@@ -64,7 +64,7 @@
             <a href="{{ $url }}" class="button">Reset Password</a>
             <p>If you did not request a password reset, no further action is required.</p>
         </div>
-        <div class="footer">&copy; {{ \App\Supports\Carbon::now()->format('Y') }} {{ config('app.name') }}. All rights reserved.</div>
+        <div class="footer">&copy; {{ \App\Supports\Carbon::nowWithAppTimezone()->format('Y') }} {{ config('app.name') }}. All rights reserved.</div>
     </div>
 </body>
 

@@ -64,7 +64,7 @@
             <a href="{{ $url }}" class="button">Verify Email</a>
             <p>If you did not create an account, no further action is required.</p>
         </div>
-        <div class="footer">&copy; {{ \App\Supports\Carbon::now()->format('Y') }} {{ config('app.name') }}. All rights reserved.</div>
+        <div class="footer">&copy; {{ \App\Supports\Carbon::nowWithAppTimezone()->format('Y') }} {{ config('app.name') }}. All rights reserved.</div>
     </div>
 </body>
 

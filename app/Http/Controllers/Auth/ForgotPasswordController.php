@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ResetPasswordRequest;
 use App\Http\Requests\Auth\SendResetLinkRequest;
+use App\Jobs\Auth\SendEmailForgotPassword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -31,7 +32,7 @@ final class ForgotPasswordController extends Controller
             $resetPassword->user_id = $user->id;
             $resetPassword->save();
 
-            $resetPassword->sendResetPasswordNotification();
+            SendEmailForgotPassword::dispatch($user, $resetPassword->token)->delay(5);
         } catch (\Throwable $th) {
             DB::rollBack();
             Log::error('Error sending reset password email: ' . $th->getMessage());

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->string('token')->index();
+            $table->timestamp('expires_at');
             $table->timestamps();
         });
     }

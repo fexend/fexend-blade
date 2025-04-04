@@ -22,11 +22,6 @@ class ResetPassword extends Model
         'user_id'
     ];
 
-    public function sendResetPasswordNotification(): void
-    {
-        Mail::to($this->user->email)->send(new ResetPasswordEmail($this->token, $this->user));
-    }
-
     /**
      * Get the user that owns the ResetPassword
      *

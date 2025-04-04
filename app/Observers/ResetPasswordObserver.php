@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\ResetPassword;
+use App\Supports\Carbon;
 use App\Supports\Str;
 
 class ResetPasswordObserver
@@ -13,6 +14,7 @@ class ResetPasswordObserver
     public function creating(ResetPassword $resetPassword): void
     {
         $resetPassword->token = Str::random(150);
+        $resetPassword->expires_at = Carbon::nowWithAppTimezone()->addMinutes(60);
     }
 
     /**

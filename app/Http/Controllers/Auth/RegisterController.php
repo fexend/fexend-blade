@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Jobs\Auth\SendEmailVerification;
 use App\Supports\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -43,7 +44,7 @@ final class RegisterController extends Controller
                 'user_id' => $user->id,
             ]);
 
-            $emailVerification->sendEmailVerificationNotification();
+            SendEmailVerification::dispatch($user, $emailVerification->token)->delay(5);
         } catch (\Throwable $th) {
             DB::rollBack();
             Log::error('Error creating email verification', [
@@ -83,6 +84,12 @@ final class RegisterController extends Controller
                     ->with('error', 'Invalid email verification token.');
             }
 
+            if (Carbon::parse($emailVerification->expires_at)->lte(Carbon::nowWithAppTimezone())) {
+                return redirect()
+                    ->route('login')
+                    ->with('error', 'Email verification token has expired. Please request a new one.');
+            }
+
             $user = $emailVerification->user;
             if ($user->email_verified_at) {
                 return redirect()
@@ -90,7 +97,7 @@ final class RegisterController extends Controller
                     ->with('error', 'Email already verified.');
             }
 
-            $user->email_verified_at = Carbon::now();
+            $user->email_verified_at = Carbon::nowWithAppTimezone();
             $user->save();
 
             Log::info('Email verified successfully', [

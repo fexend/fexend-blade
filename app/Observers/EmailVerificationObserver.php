@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\EmailVerification;
+use App\Supports\Carbon;
 use App\Supports\Str;
 
 class EmailVerificationObserver
@@ -13,6 +14,7 @@ class EmailVerificationObserver
     public function creating(EmailVerification $emailVerification): void
     {
         $emailVerification->token = Str::random(150);
+        $emailVerification->expires_at = Carbon::nowWithAppTimezone()->addMinutes(60);
     }
 
     /**
