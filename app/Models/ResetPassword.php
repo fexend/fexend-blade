@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use App\Mail\Auth\ResetPasswordEmail;
 use App\Observers\ResetPasswordObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Mail;
 
 #[ObservedBy(ResetPasswordObserver::class)]
 class ResetPassword extends Model
