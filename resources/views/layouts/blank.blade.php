@@ -101,7 +101,7 @@
     @endif
 
     @if (session('error'))
-        <x-flash-message type="error" message="{{ session('errorpa') }}" />
+        <x-flash-message type="error" message="{{ session('error') }}" />
     @endif
 
     @isset($scripts)

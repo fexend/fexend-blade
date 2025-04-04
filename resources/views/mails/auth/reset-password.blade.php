@@ -57,12 +57,12 @@
 
 <body>
     <div class="container">
-        <div class="header">Email Verification</div>
+        <div class="header">Forgot Password</div>
         <div class="content">
             <p>Hi {{ $user->name }},</p>
-            <p>Thank you for registering with us! Please click the button below to verify your email address.</p>
-            <a href="{{ $url }}" class="button">Verify Email</a>
-            <p>If you did not create an account, no further action is required.</p>
+            <p>We received a request to reset your password. Please click the button below to reset it.</p>
+            <a href="{{ $url }}" class="button">Reset Password</a>
+            <p>If you did not request a password reset, no further action is required.</p>
         </div>
         <div class="footer">&copy; {{ \App\Supports\Carbon::now()->format('Y') }} {{ config('app.name') }}. All rights reserved.</div>
     </div>

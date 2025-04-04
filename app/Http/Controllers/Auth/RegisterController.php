@@ -57,6 +57,12 @@ final class RegisterController extends Controller
                 ])->onlyInput('email', 'name');
         }
 
+        Log::info('User registered', [
+            'email' => $user->email,
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+        ]);
+
         DB::commit();
 
         return redirect()
@@ -66,6 +72,8 @@ final class RegisterController extends Controller
 
     public function verifyEmail(string $token)
     {
+        DB::beginTransaction();
+
         try {
             $emailVerification = \App\Models\EmailVerification::where('token', $token)->first();
 
@@ -85,10 +93,19 @@ final class RegisterController extends Controller
             $user->email_verified_at = Carbon::now();
             $user->save();
 
+            Log::info('Email verified successfully', [
+                'user_id' => $user->id,
+                'email' => $user->email,
+                'ip' => request()->ip(),
+                'user_agent' => request()->userAgent(),
+            ]);
+
+            DB::commit();
             return redirect()
                 ->route('login')
                 ->with('success', 'Email verified successfully. You can now login.');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Error verifying email', [
                 'error' => $th->getMessage(),
                 'token' => $token,
