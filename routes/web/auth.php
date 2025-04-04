@@ -11,6 +11,8 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get("register", [RegisterController::class, 'register'])->name("register");
     Route::post("register", [RegisterController::class, 'registerPost'])->name("register.post");
+    Route::get('resend-verification-email', [RegisterController::class, 'resendVerificationEmail'])->name('resend.verification.email');
+    Route::post('resend-verification-email', [RegisterController::class, 'resendVerificationEmailPost'])->name('resend.verification.email.post');
     Route::get('verify-email/{token}', [RegisterController::class, 'verifyEmail'])->name('verify.email');
 
     Route::get("forgot-password", [ForgotPasswordController::class, 'forgotPassword'])->name("forgot.password");

@@ -1,4 +1,4 @@
-<x-blank title="Register">
+<x-blank title="Login">
     <div class="container mx-auto">
         <div class="max-w-md mx-auto mt-10">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-key w-32 h-32 md:w-48 md:h-48 text-primary dark:text-primary-dark mx-auto">
@@ -7,36 +7,27 @@
                 <path d="M15 9h.01" />
             </svg>
 
-            <form action="{{ route('register.post') }}" method="POST">
+            <form action="{{ route('resend.verification.email.post') }}" method="POST">
                 @csrf
-
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">Welcome</h2>
+                        <h2 class="card-title">Resend Email</h2>
                         <p class="font-normal text-slate-300 dark:text-slate-700 text-sm">
-                            Sign Up to continue
+                            Resend the verification email to your registered email address.
                         </p>
                     </div>
                     <div class="card-body">
-                        <x-input name="name" label="Name" placeholder="Name" required></x-input>
-                        <x-input type="email" name="email" label="Email" placeholder="Email Address" required></x-input>
-                        <x-input type="password" name="password" label="Password" placeholder="Password" required></x-input>
-                        <x-input type="password" name="password_confirmation" label="Password Confirmation" placeholder="Password Confirmation" required></x-input>
-
-                        <div class="flex flex-row justify-between mt-4">
-                            <div></div>
-                            <div class="">
-                                <a href="{{ route('resend.verification.email.post') }}" class="text-primary dark:text-primary-dark">Resend Email Verification</a>
-                            </div>
-                        </div>
+                        <x-input name="email" label="Email" required placeholder="Email Address...."></x-input>
                     </div>
 
                     <div class="card-footer">
                         <div class="form-group">
-                            <x-button type="submit" class="button-primary">Register</x-button>
+                            <x-button type="submit" class="button-primary">
+                                Resend Email
+                            </x-button>
                         </div>
                         <div class="form-group text-center">
-                            <a href="{{ route('login') }}" class="text-primary dark:text-primary-dark">Login</a>
+                            <a href="{{ route('register') }}" class="text-primary dark:text-primary-dark">Sign Up</a>
                         </div>
                     </div>
                 </div>
