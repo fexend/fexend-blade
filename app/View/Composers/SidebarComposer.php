@@ -102,9 +102,27 @@ class SidebarComposer
         //
     }
 
-    public static function component()
+    public static function component(): array
     {
-        //
+        return [
+            'title' => 'Component',
+            'route_prefix' => 'component',
+            'route_active' => in_array(request()->route()->getName(), ['component']),
+            'menus' => [
+                [
+                    'title' => 'Component',
+                    'route' => 'component.index',
+                    'route_active' => in_array(request()->route()->getName(), ['component.index']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Acordion",
+                    'route' => 'component.accordion',
+                    'route_active' => in_array(request()->route()->getName(), ['component.accordion']),
+                    'permission_names' => [],
+                ]
+            ],
+        ];
     }
 
     public static function pages()

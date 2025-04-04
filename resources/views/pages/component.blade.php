@@ -1,3 +1,8 @@
+<?php
+use function Laravel\Folio\name;
+name('component.index');
+?>
+
 <x-main>
     <x-slot name="title">Components</x-slot>
     <x-slot name="description">This is the components page.</x-slot>
