@@ -1,6 +1,5 @@
 @props([
     'type' => 'primary',
-    'message' => '',
     'dismissible' => false,
     'soft' => false,
     'outline' => false,
@@ -27,12 +26,12 @@
 @if ($dismissible)
     <div x-data="{ showAlert: true }" x-show="showAlert" class="{{ $classes }}" role="alert">
         <div>
-            {{ $slot ?? $message }}
+            {{ $slot }}
         </div>
         <span @click="showAlert = false" class="alert-close">X</span>
     </div>
 @else
     <div class="{{ $classes }}" role="alert">
-        {{ $slot ?? $message }}
+        {{ $slot }}
     </div>
 @endif

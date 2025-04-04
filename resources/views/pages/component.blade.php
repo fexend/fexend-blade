@@ -4,12 +4,10 @@ name('component.index');
 ?>
 
 <x-main>
-    <x-slot name="title">Components</x-slot>
-    <x-slot name="description">This is the components page.</x-slot>
-    <x-slot name="keywords">components, blade, laravel</x-slot>
-    <x-slot name="active">components</x-slot>
-    <x-slot name="body">
-        <h1>Components</h1>
-        <p>This is the components page.</p>
-    </x-slot>
+    <x-slot name="title">Component</x-slot>
+
+    <x-breadcrumb>
+        <x-breadcrumb-item :href="route('component.index')" title="Component" active></x-breadcrumb-item>
+        {{-- <x-breadcrumb-item title="Accordion" active></x-breadcrumb-item> --}}
+    </x-breadcrumb>
 </x-main>

@@ -48,7 +48,7 @@
 
 /* Card header */
 .card-header {
-    @apply mb-4 text-xl;
+    @apply mb-4 text-xl font-semibold;
 }
 
 .card-title {

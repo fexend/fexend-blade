@@ -120,7 +120,19 @@ class SidebarComposer
                     'route' => 'component.accordion',
                     'route_active' => in_array(request()->route()->getName(), ['component.accordion']),
                     'permission_names' => [],
-                ]
+                ],
+                [
+                    'title' => "Alert",
+                    'route' => 'component.alert',
+                    'route_active' => in_array(request()->route()->getName(), ['component.alert']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Badge",
+                    'route' => 'component.badge',
+                    'route_active' => in_array(request()->route()->getName(), ['component.badge']),
+                    'permission_names' => [],
+                ],
             ],
         ];
     }
