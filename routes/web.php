@@ -1,12 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', fn() => redirect()->route('dashboard'));
-
-Route::get('/', function (Request $request) {
+Route::get('/', function () {
     return view('welcome');
 })
-    ->middleware('auth')
+    ->middleware('auth', 'verified')
     ->name('dashboard');

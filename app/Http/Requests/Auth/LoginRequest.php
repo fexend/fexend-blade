@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'email', 'max:255', Rule::exists('users')->where(function ($query) {
-                $query->where('email', $this->email);
+                $query->where('email', $this->email)->whereNotNull('email_verified_at');
             })],
             'password' => ['required', 'string'],
             'remember' => ['nullable'],
