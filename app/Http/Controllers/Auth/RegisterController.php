@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Supports\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 final class RegisterController extends Controller
 {
@@ -14,15 +17,86 @@ final class RegisterController extends Controller
 
     public function registerPost(RegisterRequest $request)
     {
+        DB::beginTransaction();
 
-        $user = \App\Models\User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        try {
+            $user = \App\Models\User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $request->password,
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            Log::error('Error creating user', [
+                'error' => $th->getMessage(),
+                'request' => $request->all(),
+            ]);
 
-        auth()->login($user);
+            return back()
+                ->withErrors([
+                    'email' => 'Something went wrong while creating your account. Please try again. or contact support.',
+                ])->onlyInput('email', 'name');
+        }
 
-        return redirect()->route('dashboard');
+        try {
+            $emailVerification = \App\Models\EmailVerification::create([
+                'user_id' => $user->id,
+            ]);
+
+            $emailVerification->sendEmailVerificationNotification();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            Log::error('Error creating email verification', [
+                'error' => $th->getMessage(),
+                'request' => $request->all(),
+            ]);
+
+            return back()
+                ->withErrors([
+                    'email' => 'Something went wrong while creating your account. Please try again. or contact support.',
+                ])->onlyInput('email', 'name');
+        }
+
+        DB::commit();
+
+        return redirect()
+            ->route('login')
+            ->with('success', 'Account created successfully. Please check your email for verification link.');
+    }
+
+    public function verifyEmail(string $token)
+    {
+        try {
+            $emailVerification = \App\Models\EmailVerification::where('token', $token)->first();
+
+            if (!$emailVerification) {
+                return redirect()
+                    ->route('login')
+                    ->with('error', 'Invalid email verification token.');
+            }
+
+            $user = $emailVerification->user;
+            if ($user->email_verified_at) {
+                return redirect()
+                    ->route('login')
+                    ->with('error', 'Email already verified.');
+            }
+
+            $user->email_verified_at = Carbon::now();
+            $user->save();
+
+            return redirect()
+                ->route('login')
+                ->with('success', 'Email verified successfully. You can now login.');
+        } catch (\Throwable $th) {
+            Log::error('Error verifying email', [
+                'error' => $th->getMessage(),
+                'token' => $token,
+            ]);
+
+            return redirect()
+                ->route('login')
+                ->with('error', 'Something went wrong while verifying your email. Please try again or contact support.');
+        }
     }
 }
