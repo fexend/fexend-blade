@@ -163,6 +163,48 @@ class SidebarComposer
                     'route_active' => in_array(request()->route()->getName(), ['component.drawer']),
                     'permission_names' => [],
                 ],
+                [
+                    'title' => "Dropdown",
+                    'route' => 'component.dropdown',
+                    'route_active' => in_array(request()->route()->getName(), ['component.dropdown']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Menu List",
+                    'route' => 'component.menu-list',
+                    'route_active' => in_array(request()->route()->getName(), ['component.menu-list']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Modal",
+                    'route' => 'component.modal',
+                    'route_active' => in_array(request()->route()->getName(), ['component.modal']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Popover",
+                    'route' => 'component.popover',
+                    'route_active' => in_array(request()->route()->getName(), ['component.popover']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Tab",
+                    'route' => 'component.tab',
+                    'route_active' => in_array(request()->route()->getName(), ['component.tab']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Table",
+                    'route' => 'component.table',
+                    'route_active' => in_array(request()->route()->getName(), ['component.table']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Tooltip",
+                    'route' => 'component.tooltip',
+                    'route_active' => in_array(request()->route()->getName(), ['component.tooltip']),
+                    'permission_names' => [],
+                ],
             ],
         ];
     }
