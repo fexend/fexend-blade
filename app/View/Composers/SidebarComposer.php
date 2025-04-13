@@ -99,7 +99,19 @@ class SidebarComposer
 
     public static function element()
     {
-        //
+        return [
+            'title' => 'Element',
+            'route_prefix' => 'element',
+            'route_active' => in_array(request()->route()->getName(), ['element']),
+            'menus' => [
+                [
+                    'title' => 'Button',
+                    'route' => 'element.button',
+                    'route_active' => in_array(request()->route()->getName(), ['element.button']),
+                    'permission_names' => [],
+                ]
+            ],
+        ];
     }
 
     public static function component(): array
