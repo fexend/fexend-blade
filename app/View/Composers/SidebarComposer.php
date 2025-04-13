@@ -133,6 +133,36 @@ class SidebarComposer
                     'route_active' => in_array(request()->route()->getName(), ['component.badge']),
                     'permission_names' => [],
                 ],
+                [
+                    'title' => "Breadcrumb",
+                    'route' => 'component.breadcrumb',
+                    'route_active' => in_array(request()->route()->getName(), ['component.breadcrumb']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Card",
+                    'route' => 'component.card',
+                    'route_active' => in_array(request()->route()->getName(), ['component.card']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Collapse",
+                    'route' => 'component.collapse',
+                    'route_active' => in_array(request()->route()->getName(), ['component.collapse']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Divider",
+                    'route' => 'component.divider',
+                    'route_active' => in_array(request()->route()->getName(), ['component.divider']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => "Drawer",
+                    'route' => 'component.drawer',
+                    'route_active' => in_array(request()->route()->getName(), ['component.drawer']),
+                    'permission_names' => [],
+                ],
             ],
         ];
     }

@@ -54,7 +54,7 @@
                             </li>
 
                             <li>
-                                <a href="/src/components/accordion.html" x-data="{ tooltip: false }" @mouseover="tooltip = true" @mouseleave="tooltip = false" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-primary dark:hover:bg-primary-dark dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                <a href="{{ route('component.index') }}" x-data="{ tooltip: false }" @mouseover="tooltip = true" @mouseleave="tooltip = false" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-primary dark:hover:bg-primary-dark dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                                     <!-- Component Icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-components">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
