@@ -1,7 +1,3 @@
-import "./custom/flatpickr";
-import "./custom/select2";
-import "./custom/draganddrop";
-
 import axios from "axios";
 window.axios = axios;
 
@@ -30,3 +26,7 @@ select2($);
 window.select2 = select2;
 
 window.DataTable = DataTable;
+
+import "./custom/draganddrop";
+import "./custom/flatpickr";
+import "./custom/select2";

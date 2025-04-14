@@ -109,6 +109,44 @@ class SidebarComposer
                     'route' => 'element.button',
                     'route_active' => in_array(request()->route()->getName(), ['element.button']),
                     'permission_names' => [],
+                ],
+                [
+                    'title' => 'Input',
+                    // 'route' => ,
+                    'route_active' => in_array(request()->route()->getName(), [
+                        'element.forms.checkbox',
+                        'element.forms.textarea',
+                        'element.forms.select',
+                        'element.forms.input-date',
+
+                    ]),
+                    'permission_names' => [],
+                    'sub_menus' => [
+                        [
+                            'title' => 'Checkbox',
+                            'route' => 'element.forms.checkbox',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.checkbox']),
+                            'permission_names' => [],
+                        ],
+                        [
+                            'title' => 'Textarea',
+                            'route' => 'element.forms.textarea',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.textarea']),
+                            'permission_names' => [],
+                        ],
+                        [
+                            'title' => 'Select',
+                            'route' => 'element.forms.select',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.select']),
+                            'permission_names' => [],
+                        ],
+                        [
+                            'title' => 'Input Date',
+                            'route' => 'element.forms.input-date',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.input-date']),
+                            'permission_names' => [],
+                        ]
+                    ]
                 ]
             ],
         ];
