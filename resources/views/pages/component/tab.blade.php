@@ -43,7 +43,7 @@ name('component.tab');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tab :tabs="[
     ['id' => 'tab1', 'label' => 'Profile'],
     ['id' => 'tab2', 'label' => 'Dashboard'],
@@ -85,7 +85,7 @@ name('component.tab');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tab type="button" :tabs="[
     ['id' => 'btn1', 'label' => 'Tab 1'],
     ['id' => 'btn2', 'label' => 'Tab 2'],
@@ -109,7 +109,7 @@ name('component.tab');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tab type="underline" :tabs="[
     ['id' => 'under1', 'label' => 'Tab 1'],
     ['id' => 'under2', 'label' => 'Tab 2'],
@@ -142,7 +142,7 @@ name('component.tab');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tab type="underline-with-icon" :tabs="[
     ['id' => 'icon1', 'label' => 'Profile', 'icon' => '&lt;i class="fas fa-user"&gt;&lt;/i&gt;'],
     ['id' => 'icon2', 'label' => 'Settings', 'icon' => '&lt;i class="fas fa-cog"&gt;&lt;/i&gt;'],

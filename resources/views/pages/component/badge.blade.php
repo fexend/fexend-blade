@@ -37,7 +37,7 @@ name('component.badge');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-badge type="primary"&gt;Primary&lt;/x-badge&gt;
 &lt;x-badge type="secondary"&gt;Secondary&lt;/x-badge&gt;
 &lt;x-badge type="success"&gt;Success&lt;/x-badge&gt;
@@ -74,7 +74,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-badge type="primary" style="soft"&gt;Primary&lt;/x-badge&gt;
 &lt;x-badge type="secondary" style="soft"&gt;Secondary&lt;/x-badge&gt;
 &lt;x-badge type="success" style="soft"&gt;Success&lt;/x-badge&gt;
@@ -101,7 +101,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-badge type="primary" style="outline"&gt;Primary&lt;/x-badge&gt;
 &lt;x-badge type="secondary" style="outline"&gt;Secondary&lt;/x-badge&gt;
 &lt;x-badge type="success" style="outline"&gt;Success&lt;/x-badge&gt;
@@ -125,7 +125,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-badge type="primary" rounded&gt;Primary&lt;/x-badge&gt;
 &lt;x-badge type="success" rounded&gt;Success&lt;/x-badge&gt;
 &lt;x-badge type="danger" rounded&gt;Danger&lt;/x-badge&gt;
@@ -145,7 +145,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-badge type="primary" style="soft" rounded&gt;Soft & Rounded&lt;/x-badge&gt;
 &lt;x-badge type="success" style="outline" rounded&gt;Outline & Rounded&lt;/x-badge&gt;
                 </code></pre>
@@ -183,7 +183,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;div class="flex items-center gap-2"&gt;
     &lt;x-badge type="success"&gt;Active&lt;/x-badge&gt;
     &lt;span&gt;User account is active&lt;/span&gt;
@@ -206,7 +206,7 @@ name('component.badge');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;button class="btn btn-primary relative"&gt;
     Notifications
     &lt;x-badge type="danger" rounded class="absolute -top-2 -right-2"&gt;5&lt;/x-badge&gt;

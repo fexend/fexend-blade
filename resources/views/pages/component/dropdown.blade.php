@@ -34,7 +34,7 @@ name('component.dropdown');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-dropdown-menu&gt;
     &lt;x-dropdown-item href="#"&gt;View Profile&lt;/x-dropdown-item&gt;
     &lt;x-dropdown-item href="#"&gt;Settings&lt;/x-dropdown-item&gt;
@@ -64,7 +64,7 @@ name('component.dropdown');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-dropdown-menu :icon-only="true" button-class="button button-primary-outline"&gt;
     &lt;x-dropdown-item href="#"&gt;Action 1&lt;/x-dropdown-item&gt;
     &lt;x-dropdown-item href="#"&gt;Action 2&lt;/x-dropdown-item&gt;
@@ -87,7 +87,7 @@ name('component.dropdown');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-dropdown-menu button-text="Options"&gt;
     &lt;x-dropdown-item href="#"&gt;Option 1&lt;/x-dropdown-item&gt;
     &lt;x-dropdown-item href="#"&gt;Option 2&lt;/x-dropdown-item&gt;
@@ -118,7 +118,7 @@ name('component.dropdown');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-dropdown-menu&gt;
     &lt;x-dropdown-item href="#"&gt;View Details&lt;/x-dropdown-item&gt;
     &lt;x-dropdown-item href="#"&gt;Edit&lt;/x-dropdown-item&gt;

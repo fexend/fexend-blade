@@ -33,7 +33,7 @@ name('element.forms.textarea');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-textarea name="basic1" label="Basic Textarea" placeholder="Enter your text here"&gt;&lt;/x-textarea&gt;
 
 &lt;x-textarea name="basic2" label="Disabled Textarea" disabled&gt;Disabled content&lt;/x-textarea&gt;
@@ -58,7 +58,7 @@ name('element.forms.textarea');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-textarea name="size1" label="Small Textarea" class="form-sm"&gt;&lt;/x-textarea&gt;
 
 &lt;x-textarea name="size2" label="Default Textarea"&gt;&lt;/x-textarea&gt;

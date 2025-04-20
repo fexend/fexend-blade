@@ -30,7 +30,7 @@ name('component.divider');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-divider /&gt;
             </code></pre>
         </div>
@@ -49,7 +49,7 @@ name('component.divider');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-divider text="Center Text" /&gt;
 &lt;x-divider text="Left Text" position="left" /&gt;
 &lt;x-divider text="Right Text" position="right" /&gt;
@@ -68,7 +68,7 @@ name('component.divider');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-divider text="Gradient Style" style="gradient" /&gt;
             </code></pre>
         </div>

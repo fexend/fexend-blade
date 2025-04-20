@@ -114,14 +114,22 @@ class SidebarComposer
                     'title' => 'Input',
                     // 'route' => ,
                     'route_active' => in_array(request()->route()->getName(), [
+                        'element.forms.input',
                         'element.forms.checkbox',
                         'element.forms.textarea',
                         'element.forms.select',
                         'element.forms.input-date',
+                        'element.forms.input-file',
 
                     ]),
                     'permission_names' => [],
                     'sub_menus' => [
+                        [
+                            'title' => 'Input',
+                            'route' => 'element.forms.input',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.input']),
+                            'permission_names' => [],
+                        ],
                         [
                             'title' => 'Checkbox',
                             'route' => 'element.forms.checkbox',
@@ -145,7 +153,13 @@ class SidebarComposer
                             'route' => 'element.forms.input-date',
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input-date']),
                             'permission_names' => [],
-                        ]
+                        ],
+                        [
+                            'title' => 'Input File',
+                            'route' => 'element.forms.input-file',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.input-file']),
+                            'permission_names' => [],
+                        ],
                     ]
                 ]
             ],

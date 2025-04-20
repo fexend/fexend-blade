@@ -37,7 +37,7 @@ name('element.button');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary"&gt;Primary&lt;/x-button&gt;
 &lt;x-button class="button-secondary"&gt;Secondary&lt;/x-button&gt;
 &lt;x-button class="button-success"&gt;Success&lt;/x-button&gt;
@@ -73,7 +73,7 @@ name('element.button');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary-soft"&gt;Primary&lt;/x-button&gt;
 &lt;x-button class="button-secondary-soft"&gt;Secondary&lt;/x-button&gt;
 &lt;x-button class="button-success-soft"&gt;Success&lt;/x-button&gt;
@@ -98,7 +98,7 @@ name('element.button');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary-outline"&gt;Primary&lt;/x-button&gt;
 &lt;x-button class="button-secondary-outline"&gt;Secondary&lt;/x-button&gt;
 &lt;x-button class="button-success-outline"&gt;Success&lt;/x-button&gt;
@@ -121,7 +121,7 @@ name('element.button');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary button-sm"&gt;Small&lt;/x-button&gt;
 &lt;x-button class="button-primary"&gt;Default&lt;/x-button&gt;
 &lt;x-button class="button-primary button-lg"&gt;Large&lt;/x-button&gt;
@@ -163,7 +163,7 @@ name('element.button');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary flex"&gt;
     &lt;x-icon name="plus" class="w-4 h-4 mr-2" /&gt; Add Item
 &lt;/x-button&gt;
@@ -183,7 +183,7 @@ name('element.button');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button class="button-primary" loading&gt;Loading...&lt;/x-button&gt;
 &lt;x-button class="button-secondary" loading disabled&gt;Processing&lt;/x-button&gt;
                 </code></pre>

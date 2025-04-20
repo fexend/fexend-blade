@@ -49,7 +49,7 @@ name('component.table');
         </x-table>
 
         <div class="rounded-md mt-4">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-table title="Users List"&gt;
     &lt;x-slot name="thead"&gt;
         &lt;tr&gt;
@@ -103,7 +103,7 @@ name('component.table');
             </x-table>
 
             <div class="rounded-md mt-4">
-                <pre><code class="language-blade">&lt;x-table title="Striped Users Table" style="striped"&gt;
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">&lt;x-table title="Striped Users Table" style="striped"&gt;
     // ... table content ...
 &lt;/x-table&gt;</code></pre>
             </div>
@@ -136,7 +136,7 @@ name('component.table');
             </x-table>
 
             <div class="rounded-md mt-4">
-                <pre><code class="language-blade">&lt;x-table title="Hoverable Users Table" style="hover"&gt;
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">&lt;x-table title="Hoverable Users Table" style="hover"&gt;
     // ... table content ...
 &lt;/x-table&gt;</code></pre>
             </div>
@@ -185,7 +185,7 @@ name('component.table');
         </x-table>
 
         <div class="rounded-md mt-4">
-            <pre><code class="language-blade">&lt;x-table title="Users DataTable" datatable id="users-table" hasFilter&gt;
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">&lt;x-table title="Users DataTable" datatable id="users-table" hasFilter&gt;
     // ... table content with actions and filters ...
 &lt;/x-table&gt;</code></pre>
         </div>

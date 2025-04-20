@@ -34,7 +34,7 @@ name('element.forms.select');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-select
     name="basic_select"
     label="Basic Select"
@@ -87,7 +87,7 @@ name('element.forms.select');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;!-- Basic Select2 --&gt;
 &lt;x-select
     name="select2_basic"
@@ -165,7 +165,7 @@ name('element.forms.select');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;!-- Small Select --&gt;
 &lt;x-select name="select_sm" label="Small Select" class="form-input form-sm w-full"&gt;
     &lt;option value=""&gt;Select an option&lt;/option&gt;
@@ -214,7 +214,7 @@ name('element.forms.select');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;!-- Basic Rounded Select --&gt;
 &lt;x-select name="select_rounded" label="Rounded Select" class="form-input form-rounded w-full"&gt;
     &lt;option value=""&gt;Select an option&lt;/option&gt;

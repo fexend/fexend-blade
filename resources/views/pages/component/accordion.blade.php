@@ -42,7 +42,7 @@ name('component.accordion');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-accordion&gt;
     &lt;x-accordion-item id="1" title="Accordion Item 1"&gt;
         &lt;p&gt;This is the content for the first accordion item.&lt;/p&gt;
@@ -83,7 +83,7 @@ name('component.accordion');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-accordion-item id="4" title="Bordered Accordion Item" variant="bordered"&gt;
     &lt;p&gt;This is a bordered accordion item.&lt;/p&gt;
 &lt;/x-accordion-item&gt;
@@ -106,7 +106,7 @@ name('component.accordion');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-accordion-item id="5" title="Full Bordered Accordion Item" variant="full-bordered"&gt;
     &lt;p&gt;This is a full bordered accordion item.&lt;/p&gt;
 &lt;/x-accordion-item&gt;
@@ -133,7 +133,7 @@ name('component.accordion');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-accordion&gt;
     &lt;x-accordion-item id="6" title="Separated Accordion Item 1" variant="separated"&gt;
         &lt;p&gt;This is the first separated accordion item.&lt;/p&gt;

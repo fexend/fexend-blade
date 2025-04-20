@@ -34,7 +34,7 @@ name('component.breadcrumb');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-breadcrumb&gt;
     &lt;x-breadcrumb-item title="Home"&gt;&lt;/x-breadcrumb-item&gt;
     &lt;x-breadcrumb-item title="Library"&gt;&lt;/x-breadcrumb-item&gt;
@@ -59,7 +59,7 @@ name('component.breadcrumb');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-breadcrumb&gt;
     &lt;x-breadcrumb-item :href="route('dashboard')" title="Dashboard"&gt;&lt;/x-breadcrumb-item&gt;
     &lt;x-breadcrumb-item :href="route('component.index')" title="Components"&gt;&lt;/x-breadcrumb-item&gt;
@@ -89,7 +89,7 @@ name('component.breadcrumb');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-breadcrumb&gt;
     &lt;x-breadcrumb-item title="Users"&gt;&lt;/x-breadcrumb-item&gt;
     &lt;x-breadcrumb-item title="Profile" active&gt;&lt;/x-breadcrumb-item&gt;

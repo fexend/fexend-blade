@@ -32,7 +32,7 @@ name('component.tooltip');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tooltip content="This is a tooltip"&gt;
     &lt;button class="btn btn-primary"&gt;Hover me&lt;/button&gt;
 &lt;/x-tooltip&gt;
@@ -74,7 +74,7 @@ name('component.tooltip');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tooltip content="Additional information about this feature"&gt;
     &lt;i class="fas fa-info-circle text-blue-500"&gt;&lt;/i&gt;
 &lt;/x-tooltip&gt;
@@ -95,7 +95,7 @@ name('component.tooltip');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-tooltip content="Enter your full legal name"&gt;
     &lt;input type="text" class="form-control" placeholder="Full Name"&gt;
 &lt;/x-tooltip&gt;

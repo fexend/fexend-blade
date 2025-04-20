@@ -30,7 +30,7 @@ name('component.menu-list');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-menu-list :items="[
     ['label' => 'Dashboard', 'url' => '#'],
     ['label' => 'Profile', 'url' => '#'],
@@ -68,7 +68,7 @@ name('component.menu-list');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-menu-list 
     :show-icons="true"
     :items="[
@@ -105,7 +105,7 @@ name('component.menu-list');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-menu-list 
     :items="[
         ['label' => 'Dashboard', 'url' => '#'],

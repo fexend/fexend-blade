@@ -37,7 +37,7 @@ name('component.drawer');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-button x-data @click="$dispatch('open-drawer', { id: 'drawer-basic' })"&gt;
     Open Drawer
 &lt;/x-button&gt;
@@ -86,7 +86,7 @@ name('component.drawer');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-drawer id="drawer-example" position="left"&gt;
     &lt;x-slot name="header"&gt;Left Drawer&lt;/x-slot&gt;
     &lt;p class="p-4"&gt;Drawer content&lt;/p&gt;
@@ -122,7 +122,7 @@ name('component.drawer');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-drawer id="drawer-example" :backdrop="false"&gt;
     &lt;!-- For no backdrop --&gt;
 &lt;/x-drawer&gt;

@@ -34,7 +34,7 @@ name('component.card');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-card&gt;
     &lt;x-slot name="header"&gt;Card Header&lt;/x-slot&gt;
     This is the card body content.
@@ -68,7 +68,7 @@ name('component.card');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-card variant="primary"&gt;
     &lt;x-slot name="header"&gt;Primary Card&lt;/x-slot&gt;
     Primary variant card content
@@ -101,7 +101,7 @@ name('component.card');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-card size="sm"&gt;...&lt;/x-card&gt;
 &lt;x-card&gt;...&lt;/x-card&gt;
 &lt;x-card size="lg"&gt;...&lt;/x-card&gt;
@@ -123,7 +123,7 @@ name('component.card');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-card loading&gt;
     &lt;x-slot name="header"&gt;Loading Card&lt;/x-slot&gt;
     This card is in a loading state
@@ -146,7 +146,7 @@ name('component.card');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-card hover&gt;
     &lt;x-slot name="header"&gt;Hover Card&lt;/x-slot&gt;
     Hover over this card to see the effect

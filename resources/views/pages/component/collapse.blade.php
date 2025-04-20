@@ -32,7 +32,7 @@ name('component.collapse');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-collapse title="Basic Collapse"&gt;
     &lt;p&gt;This is the content of a basic collapse component. You can put any content here.&lt;/p&gt;
 &lt;/x-collapse&gt;
@@ -59,7 +59,7 @@ name('component.collapse');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-collapse title="Bordered Collapse" variant="bordered"&gt;
     &lt;p&gt;This collapse has a border around it.&lt;/p&gt;
 &lt;/x-collapse&gt;
@@ -80,7 +80,7 @@ name('component.collapse');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-collapse title="Full Bordered Collapse" variant="full-bordered"&gt;
     &lt;p&gt;This collapse has borders around both header and content.&lt;/p&gt;
 &lt;/x-collapse&gt;
@@ -104,7 +104,7 @@ name('component.collapse');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-collapse title="Separated Collapse" variant="separated"&gt;
     &lt;p&gt;This collapse has space between items when used in a group.&lt;/p&gt;
 &lt;/x-collapse&gt;
@@ -135,7 +135,7 @@ name('component.collapse');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-collapse title="What is a collapse component?" bordered&gt;
     &lt;p&gt;A collapse component is used to show and hide content in a toggle manner.&lt;/p&gt;
 &lt;/x-collapse&gt;

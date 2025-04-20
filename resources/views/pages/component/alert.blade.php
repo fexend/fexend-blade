@@ -36,7 +36,7 @@ name('component.alert');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary"&gt;This is a primary alert&lt;/x-alert&gt;
 &lt;x-alert type="success"&gt;This is a success alert&lt;/x-alert&gt;
 &lt;x-alert type="danger"&gt;This is a danger alert&lt;/x-alert&gt;
@@ -70,7 +70,7 @@ name('component.alert');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary" soft&gt;This is a soft primary alert&lt;/x-alert&gt;
 &lt;x-alert type="success" soft&gt;This is a soft success alert&lt;/x-alert&gt;
 &lt;x-alert type="dark" soft&gt;This is a soft dark alert&lt;/x-alert&gt;
@@ -93,7 +93,7 @@ name('component.alert');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary" outline&gt;This is an outline primary alert&lt;/x-alert&gt;
 &lt;x-alert type="success" outline&gt;This is an outline success alert&lt;/x-alert&gt;
 &lt;x-alert type="dark" outline&gt;This is an outline dark alert&lt;/x-alert&gt;
@@ -114,7 +114,7 @@ name('component.alert');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary" rounded&gt;This is a rounded primary alert&lt;/x-alert&gt;
 &lt;x-alert type="success" rounded&gt;This is a rounded success alert&lt;/x-alert&gt;
                 </code></pre>
@@ -133,7 +133,7 @@ name('component.alert');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary" dismissible&gt;This is a dismissible primary alert&lt;/x-alert&gt;
 &lt;x-alert type="success" dismissible&gt;This is a dismissible success alert&lt;/x-alert&gt;
                 </code></pre>
@@ -152,7 +152,7 @@ name('component.alert');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary" soft rounded dismissible&gt;Soft, rounded and dismissible alert&lt;/x-alert&gt;
 &lt;x-alert type="success" outline rounded dismissible&gt;Outline, rounded and dismissible alert&lt;/x-alert&gt;
                 </code></pre>
@@ -173,7 +173,7 @@ name('component.alert');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-alert type="primary"&gt;
     &lt;strong&gt;Well done!&lt;/strong&gt; You can include &lt;em&gt;formatted content&lt;/em&gt; in alerts.
 &lt;/x-alert&gt;

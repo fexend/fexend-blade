@@ -29,7 +29,7 @@ name('element.forms.input-date');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-input
     type="date"
     name="native_date"
@@ -65,7 +65,7 @@ name('element.forms.input-date');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;!-- Basic Date Picker --&gt;
 &lt;x-input
     type="text"

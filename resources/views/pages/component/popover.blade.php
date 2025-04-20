@@ -42,7 +42,7 @@ name('component.popover');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-popover&gt;
     &lt;x-slot name="triggerSlot"&gt;
         &lt;button class="btn btn-primary"&gt;Hover me&lt;/button&gt;
@@ -90,7 +90,7 @@ name('component.popover');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;div class="flex items-center gap-2"&gt;
     &lt;label&gt;Username&lt;/label&gt;
     &lt;x-popover&gt;

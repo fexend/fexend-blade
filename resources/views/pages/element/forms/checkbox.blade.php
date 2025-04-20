@@ -39,7 +39,7 @@ name('element.forms.checkbox');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-checkbox-input name="basic1" id="basic1"&gt;
     Basic checkbox
 &lt;/x-checkbox-input&gt;
@@ -74,7 +74,7 @@ name('element.forms.checkbox');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-checkbox-input name="style1" id="style1" style="basic"&gt;
     Basic style checkbox
 &lt;/x-checkbox-input&gt;
@@ -96,7 +96,7 @@ name('element.forms.checkbox');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-checkbox-input name="style2" id="style2" style="divider"&gt;
     &lt;p&gt;Divider style checkbox&lt;/p&gt;
     &lt;span&gt;Additional description text&lt;/span&gt;
@@ -119,7 +119,7 @@ name('element.forms.checkbox');
             </div>
 
             <div class="rounded-md">
-                <pre><code class="language-blade">
+                <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-checkbox-input name="style3" id="style3" style="card"&gt;
     &lt;p&gt;Card style checkbox&lt;/p&gt;
     &lt;span&gt;Click to select this option&lt;/span&gt;
@@ -158,7 +158,7 @@ name('element.forms.checkbox');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-checkbox-input name="variant1" style="card" variant="primary"&gt;
     &lt;p&gt;Primary Variant&lt;/p&gt;
     &lt;span&gt;Primary colored card checkbox&lt;/span&gt;

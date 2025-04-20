@@ -32,7 +32,7 @@ name('component.modal');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-modal title="Basic Modal"&gt;
     &lt;p&gt;This is a basic modal example with default settings.&lt;/p&gt;
 &lt;/x-modal&gt;
@@ -62,7 +62,7 @@ name('component.modal');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-modal title="Small Modal" size="sm"&gt;
     &lt;p&gt;This is a small modal.&lt;/p&gt;
 &lt;/x-modal&gt;
@@ -93,7 +93,7 @@ name('component.modal');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-modal title="Top Center Modal" position="top-center"&gt;
     &lt;p&gt;Modal at top center position.&lt;/p&gt;
 &lt;/x-modal&gt;
@@ -117,7 +117,7 @@ name('component.modal');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-modal title="Success Modal" type="success"&gt;
     &lt;p&gt;Operation completed successfully!&lt;/p&gt;
 &lt;/x-modal&gt;
@@ -141,7 +141,7 @@ name('component.modal');
         </div>
 
         <div class="rounded-md">
-            <pre><code class="language-blade">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-modal&gt;
     &lt;x-slot name="trigger"&gt;
         &lt;x-button type="primary"&gt;Custom Button Trigger&lt;/x-button&gt;
