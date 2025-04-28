@@ -1,22 +1,24 @@
-<!-- filepath: /home/zulfi/development/fexend-blade/resources/views/components/x-collapse.blade.php -->
 @props([
     'title' => 'Collapse Item',
     'open' => false,
-    'bordered' => false,
-    'fullBordered' => false,
-    'separated' => false,
+    'variant' => 'default',
 ])
 
 @php
     $classes = 'collapse-component';
-    if ($bordered) {
-        $classes .= ' collapse-bordered';
-    }
-    if ($fullBordered) {
-        $classes .= ' collapse-full-bordered';
-    }
-    if ($separated) {
-        $classes .= ' collapse-separated';
+    switch ($variant) {
+        case 'bordered':
+            $classes .= ' collapse-bordered';
+            break;
+        case 'full-bordered':
+            $classes .= ' collapse-full-bordered';
+            break;
+        case 'separated':
+            $classes .= ' collapse-full-bordered collapse-separated';
+            break;
+        default:
+            $classes .= ' collapse-default';
+            break;
     }
 @endphp
 

@@ -4,6 +4,13 @@
     $icon = $attributes->get('icon');
     $iconPosition = $attributes->get('iconPosition', 'right');
     $name = $attributes->get('name');
+    $type = $attributes->get('type', 'text');
+
+    // Add Flatpickr support
+    $hasFlatpickr = $attributes->has('data-flatpickr');
+    if ($hasFlatpickr) {
+        $type = 'text';
+    }
 @endphp
 
 @if (!$icon)
@@ -11,7 +18,7 @@
         @if ($label)
             <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
         @endif
-        <input type="{{ $attributes->get('type', 'text') }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+        <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
                 'value' => old($name) ?? $attributes->get('value'),
             ])->except(['class', 'type']) }} />
         @error($name)
@@ -27,7 +34,7 @@
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif
-            <input type="{{ $attributes->get('type', 'text') }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
                     'value' => old($name) ?? $attributes->get('value'),
                 ])->except(['class', 'type']) }} />
 
@@ -44,7 +51,7 @@
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif
-            <input type="{{ $attributes->get('type', 'text') }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
                     'value' => old($name) ?? $attributes->get('value'),
                 ])->except(['class', 'type']) }} />
 

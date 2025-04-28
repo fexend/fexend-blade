@@ -24,7 +24,8 @@ class FolioServiceProvider extends ServiceProvider
             ->uri('/')
             ->middleware([
                 '*' => [
-                    //
+                    'auth',
+                    'verified'
                 ],
             ]);
     }

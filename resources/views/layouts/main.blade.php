@@ -127,6 +127,18 @@ setTimeout(() => {
         <x-layouts.mobile-menu></x-layouts.mobile-menu>
     </main>
 
+    @if (session('success'))
+        <x-flash-message type="success" message="{{ session('success') }}" />
+    @endif
+
+    @if (session('warning'))
+        <x-flash-message type="warning" message="{{ session('warning') }}" />
+    @endif
+
+    @if (session('error'))
+        <x-flash-message type="error" message="{{ session('errorpa') }}" />
+    @endif
+
     @isset($scripts)
         {{ $scripts }}
     @endisset

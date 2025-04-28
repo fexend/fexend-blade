@@ -1,0 +1,20 @@
+apps:
+  - name: laravel-scheduler
+    script: php
+    args: "artisan schedule:run"
+    exec_mode: fork
+    cwd: /var/www/html
+    autorestart: true
+    restart_delay: 60000
+    max_restarts: 10
+    log_date_format: "YYYY-MM-DD HH:mm:ss"
+
+  - name: laravel-queue
+    script: php
+    args: "artisan queue:work --tries=3 --memory=512 --timeout=60"
+    exec_mode: fork
+    cwd: /var/www/html
+    instances: 2
+    autorestart: true
+    max_restarts: 10
+    log_date_format: "YYYY-MM-DD HH:mm:ss"

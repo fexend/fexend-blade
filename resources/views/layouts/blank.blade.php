@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @php
+        $isSidebarOpen = $attributes->get('isSidebarOpen', false);
+        $title = $attributes->get('title', 'Dashboard');
+        $pageDescription = $attributes->get('pageDescription', 'Fexend Dashboard description');
+    @endphp
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $title ?? '' }} | {{ config('app.name') }}</title>
@@ -85,6 +91,18 @@
             </svg>
         </button>
     </div>
+
+    @if (session('success'))
+        <x-flash-message type="success" message="{{ session('success') }}" />
+    @endif
+
+    @if (session('warning'))
+        <x-flash-message type="warning" message="{{ session('warning') }}" />
+    @endif
+
+    @if (session('error'))
+        <x-flash-message type="error" message="{{ session('error') }}" />
+    @endif
 
     @isset($scripts)
         {{ $scripts }}

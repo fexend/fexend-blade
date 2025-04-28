@@ -34,8 +34,14 @@ trait ControllerTrait
     /**
      * Response JSON message CRUD
      */
-    public function responseJsonMessageCrud(bool $success = true, string $method = 'create', ?string $message, ?string $exceptionMessage, int $code = 200, $data = null): JsonResponse
-    {
+    public function responseJsonMessageCrud(
+        bool $success,
+        string $method,
+        string|null $exceptionMessage,
+        string|null $message = null,
+        int $code = 200,
+        mixed $data = null
+    ): JsonResponse {
         $methods = [
             'create' => __('insert new data. '),
             'update' => __('update data. '),
@@ -74,7 +80,7 @@ trait ControllerTrait
     /**
      * Response message CRUD
      */
-    public function responseMessageCrud(bool $success = true, string $method = 'create', ?string $message, ?string $exceptionMessage): string
+    public function responseMessageCrud(bool $success = true, string $method = 'create', null|string $message = null, null|string $exceptionMessage = null): string
     {
         $methods = [
             'create' => __('insert new data. '),

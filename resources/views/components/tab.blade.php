@@ -15,15 +15,15 @@
         <nav aria-label="Tabs">
             @foreach ($tabs as $tab)
                 @if ($type === 'button')
-                    <a href="#" @click="activeTab = '{{ $tab['id'] }}'" class="button button-primary-outline" @if ($loop->first && $defaultActive === $tab['id']) aria-current="page" @endif>
+                    <a href="javascript:void(0)" @click="activeTab = '{{ $tab['id'] }}'" class="button button-primary-outline" @if ($loop->first && $defaultActive === $tab['id']) aria-current="page" @endif>
                         {{ $tab['label'] }}
                     </a>
                 @elseif($type === 'underline')
-                    <a href="#" @click="activeTab = '{{ $tab['id'] }}'" x-bind:class="activeTab === '{{ $tab['id'] }}' ? 'active' : ''" class="tab-link">
+                    <a href="javascript:void(0)" @click="activeTab = '{{ $tab['id'] }}'" x-bind:class="activeTab === '{{ $tab['id'] }}' ? 'active' : ''" class="tab-link">
                         {{ $tab['label'] }}
                     </a>
                 @elseif($type === 'underline-with-icon')
-                    <a href="#" @click="activeTab = '{{ $tab['id'] }}'" x-bind:class="activeTab === '{{ $tab['id'] }}' ? 'active' : ''" class="tab-link tab-link-icon">
+                    <a href="javascript:void(0)" @click="activeTab = '{{ $tab['id'] }}'" x-bind:class="activeTab === '{{ $tab['id'] }}' ? 'active' : ''" class="tab-link tab-link-icon">
                         @if (isset($tab['icon']))
                             {!! $tab['icon'] !!}
                         @endif
