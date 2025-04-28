@@ -1,19 +1,16 @@
 <?php
 
-namespace Tests\Feature;
+use App\Models\User;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+it("un authenticated user redirect to login page", function () {
+    $response = $this->get(route("dashboard"));
+    $response->assertRedirect(route("login"));
+});
 
-class ExampleTest extends TestCase
-{
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
-    {
-        $response = $this->get('/');
+it("authenticated user can access dashboard", function () {
+    $user = User::factory()->create();
+    $this->actingAs($user);
 
-        $response->assertStatus(200);
-    }
-}
+    $response = $this->get(route("dashboard"));
+    $response->assertStatus(200);
+});

@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run Pint (PHP code formatter)
+./vendor/bin/pint
+
+# Optionally run tests (optional, recommended)
+php artisan test
+
+# Run npm build
+npm run build
