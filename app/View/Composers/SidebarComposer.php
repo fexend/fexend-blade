@@ -121,7 +121,8 @@ class SidebarComposer
                         'element.forms.input-date',
                         'element.forms.input-file',
                         'element.forms.input-radio',
-
+                        'element.forms.input-switch',
+                        'element.forms.checkbox',
                     ]),
                     'permission_names' => [],
                     'sub_menus' => [
@@ -129,12 +130,6 @@ class SidebarComposer
                             'title' => 'Input',
                             'route' => 'element.forms.input',
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input']),
-                            'permission_names' => [],
-                        ],
-                        [
-                            'title' => 'Checkbox',
-                            'route' => 'element.forms.checkbox',
-                            'route_active' => in_array(request()->route()->getName(), ['element.forms.checkbox']),
                             'permission_names' => [],
                         ],
                         [
@@ -150,23 +145,35 @@ class SidebarComposer
                             'permission_names' => [],
                         ],
                         [
-                            'title' => 'Input Date',
+                            'title' => 'Date',
                             'route' => 'element.forms.input-date',
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input-date']),
                             'permission_names' => [],
                         ],
                         [
-                            'title' => 'Input File',
+                            'title' => 'File',
                             'route' => 'element.forms.input-file',
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input-file']),
                             'permission_names' => [],
                         ],
                         [
-                            'title' => 'Input Radio',
+                            'title' => 'Radio',
                             'route' => 'element.forms.input-radio',
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input-radio']),
                             'permission_names' => [],
-                        ]
+                        ],
+                        [
+                            'title' => 'Switch',
+                            'route' => 'element.forms.input-switch',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.input-switch']),
+                            'permission_names' => [],
+                        ],
+                        [
+                            'title' => 'Checkbox',
+                            'route' => 'element.forms.checkbox',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.checkbox']),
+                            'permission_names' => [],
+                        ],
                     ]
                 ]
             ],
