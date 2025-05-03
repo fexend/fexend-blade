@@ -120,6 +120,7 @@ class SidebarComposer
                         'element.forms.select',
                         'element.forms.input-date',
                         'element.forms.input-file',
+                        'element.forms.input-radio',
 
                     ]),
                     'permission_names' => [],
@@ -160,6 +161,12 @@ class SidebarComposer
                             'route_active' => in_array(request()->route()->getName(), ['element.forms.input-file']),
                             'permission_names' => [],
                         ],
+                        [
+                            'title' => 'Input Radio',
+                            'route' => 'element.forms.input-radio',
+                            'route_active' => in_array(request()->route()->getName(), ['element.forms.input-radio']),
+                            'permission_names' => [],
+                        ]
                     ]
                 ]
             ],
