@@ -95,12 +95,12 @@
                     <!-- Profile Dropdown -->
                     <div x-data="{ profileOpen: false }" class="relative">
                         <button @click="profileOpen = !profileOpen" class="navbar-button">
-                            <img src="https://ui-avatars.com/api/?name=Zera+App&background=615fff&color=fff" alt="User avatar" class="w-8 h-8 rounded-full" />
+                            <img src="{{ $userInformation->avatar }}" alt="User avatar" class="w-8 h-8 rounded-full" />
                         </button>
                         <div x-show="profileOpen" @click.away="profileOpen = false" x-transition class="absolute right-0 mt-2 w-40 bg-foreground dark:bg-foreground-dark rounded-lg shadow-lg z-10">
-                            <a href="/src/pages/profile.html" class="block px-4 py-2 text-sm">Profile</a>
+                            <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm">Profile</a>
                             <a href="/src/settings/index.html" class="block px-4 py-2 text-sm">Settings</a>
-                            <a href="/src/index.html" class="block px-4 py-2 text-sm">Logout</a>
+                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm">Logout</a>
                         </div>
                     </div>
                 </div>

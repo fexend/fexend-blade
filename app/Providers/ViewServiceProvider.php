@@ -39,5 +39,6 @@ class ViewServiceProvider extends ServiceProvider
     protected function registerViewComposers(): void
     {
         \Illuminate\Support\Facades\View::composer('components.layouts.sidebar', 'App\View\Composers\SidebarComposer');
+        \Illuminate\Support\Facades\View::composer('components.layouts.header', 'App\View\Composers\Compose');
     }
 }
