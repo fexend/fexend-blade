@@ -4,7 +4,7 @@
 # Run Pint (PHP code formatter)
 ./vendor/bin/pint
 
-git add .
+# git add .
 
 # Optionally run tests (optional, recommended)
 php artisan test
