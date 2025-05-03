@@ -53,3 +53,8 @@ it('can render the input radio element page', function () {
     $response = $this->get(route("element.forms.input-radio"));
     $response->assertStatus(200);
 });
+
+it('can render the input switch element page', function () {
+    $response = $this->get(route("element.forms.input-switch"));
+    $response->assertStatus(200);
+});
