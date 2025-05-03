@@ -110,8 +110,8 @@ final class RegisterController extends Controller
 
             DB::commit();
             return redirect()
-                ->route('register')
-                ->with('success', 'Email verified successfully. You can now login.');
+                ->route('login')
+                ->with('success', 'Email verified successfully.');
         } catch (\Throwable $th) {
             DB::rollBack();
             Log::error('Error verifying email', [

@@ -187,7 +187,7 @@ class SidebarComposer
                     'permission_names' => [],
                 ],
                 [
-                    'title' => "Acordion",
+                    'title' => "Accordion",
                     'route' => 'component.accordion',
                     'route_active' => in_array(request()->route()->getName(), ['component.accordion']),
                     'permission_names' => [],
