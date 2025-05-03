@@ -28,7 +28,12 @@ class SidebarComposer
                 'element' => self::element(),
                 'component' => self::component(),
                 'pages' => self::pages(),
-                default => [],
+                default => [
+                    'title' => 'Dashboard',
+                    'route_prefix' => 'dashboard',
+                    'route_active' => in_array(request()->route()->getName(), ['dashboard']),
+                    'menus' => [],
+                ],
             };
 
             $view->with('sidebarContent', $sidebarContent);
