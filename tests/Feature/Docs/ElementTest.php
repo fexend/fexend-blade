@@ -9,12 +9,14 @@ beforeEach(function () {
 
 it('can render the element page', function () {
     $response = $this->get(route("element.index"));
-    $response->assertStatus(200);;
+    $response->assertStatus(200);
+    ;
 });
 
 it('can render the button element page', function () {
     $response = $this->get(route("element.button"));
-    $response->assertStatus(200);;
+    $response->assertStatus(200);
+    ;
 });
 
 it('can render the input element page', function () {
