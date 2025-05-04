@@ -1,5 +1,25 @@
-<x-main title="Custom Dashboard">
-    <x-breadcrumb></x-breadcrumb>
+<?php
+use function Laravel\Folio\name;
+name('dashboard');
+
+?>
+
+<x-main :title="'Dashboard'">
+    <div class="">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+            <h2 class="title">Dashboard</h2>
+            <ol>
+                <li>
+                    <a href="/src/dashboard/dashboard.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
 
     <div class="tab tab-bordered mt-4" x-data="{ activeTab: 'overview' }">
         <div class="tab-button">
@@ -319,9 +339,8 @@
             </div>
         </div>
     </div>
-
-    <x-slot name="scripts">
-        {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
+    <x-slot name="script">
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script>
             let primaryColor,
                 secondaryColor,
