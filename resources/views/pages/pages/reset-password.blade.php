@@ -1,6 +1,8 @@
 <?php
 use function Laravel\Folio\name;
+use App\Supports\Str;
 name('pages.reset-password');
+$token = request()->route('token') ?? Str::random(50);
 ?>
 
 <x-blank title="Reset Password">
