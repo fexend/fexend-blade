@@ -19,6 +19,7 @@
     "@alpinejs/collapse": "^3.14.8",
     "@alpinejs/mask": "^3.14.8",
     "alpinejs": "^3.14.8",
+    "apexcharts": "^4.7.0",
     "datatables.net-dt": "^2.2.2",
     "flatpickr": "^4.6.13",
     "jquery": "^3.7.1",

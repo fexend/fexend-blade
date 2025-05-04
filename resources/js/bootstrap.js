@@ -9,6 +9,7 @@ import { collapse } from "@alpinejs/collapse";
 import flatpickr from "flatpickr";
 import $ from "jquery";
 import select2 from "select2";
+import ApexCharts from "apexcharts";
 
 import DataTable from "datatables.net-dt";
 
@@ -26,6 +27,7 @@ select2($);
 window.select2 = select2;
 
 window.DataTable = DataTable;
+window.ApexCharts = ApexCharts;
 
 import "./custom/draganddrop";
 import "./custom/flatpickr";
