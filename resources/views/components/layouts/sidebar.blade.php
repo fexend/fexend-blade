@@ -1,8 +1,5 @@
 <!-- Sidebar -->
 <aside>
-
-    {{-- @dd($sidebarContent); --}}
-
     @if ($attributes->get('sidebarMenuIcon', true))
         <!-- Icon Sidebar - Hidden on mobile, visible on tablet and up -->
         <div class="sidebar-icon z-20">
@@ -68,7 +65,7 @@
                             </li>
 
                             <li>
-                                <a href="/src/pages/index.html" x-data="{ tooltip: false }" @mouseover="tooltip = true" @mouseleave="tooltip = false" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-primary dark:hover:bg-primary-dark dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+                                <a href="{{ route('pages.index') }}" x-data="{ tooltip: false }" @mouseover="tooltip = true" @mouseleave="tooltip = false" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-primary dark:hover:bg-primary-dark dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                                     <!-- Pages Icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
                                         <path stroke="none" d="M0 0h24h24H0z" fill="none" />
@@ -111,30 +108,67 @@
         <div x-cloak x-show="sidebarOpen" x-transition:enter="transform transition duration-300 ease-in-out" x-transition:enter-start="translate-x-[-100%]" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition duration-300 ease-in-out" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-[-100%]" class="sidebar-layout overflow-y-auto max-h-screen">
             <div class="px-4 py-6">
                 <ul class="space-y-1" x-data="{ selected: null }">
-                    @foreach ($sidebarContent['menus'] as $item)
-                        @if (array_key_exists('sub_menus', $item))
-                            <li x-data="{ open: {{ $item['route_active'] ? 'true' : 'false' }} }">
-                                <button @click="open = !open" class="sidebar-dropdown-button">
-                                    <span class="text-sm font-medium">{{ $item['title'] }}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="sidebar-dropdown-icon" :class="{ 'open': open }" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
 
-                                <ul x-show="open" x-collapse class="sidebar-dropdown">
-                                    @foreach ($item['sub_menus'] as $subItem)
-                                        <li>
-                                            <a href="{{ route($subItem['route']) }}" class="sidebar-nested-link {{ $subItem['route_active'] ? 'sidebar-nested-link-active' : '' }}">{{ $subItem['title'] }}</a>
-                                        </li>
-                                    @endforeach
+                    @if ($attributes->get('sidebarMenuIcon', true))
+                        @foreach ($sidebarContent['menus'] as $item)
+                            @if (array_key_exists('sub_menus', $item))
+                                <li x-data="{ open: {{ $item['route_active'] ? 'true' : 'false' }} }">
+                                    <button @click="open = !open" class="sidebar-dropdown-button">
+                                        <span class="text-sm font-medium">{{ $item['title'] }}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="sidebar-dropdown-icon" :class="{ 'open': open }" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
 
-                                </ul>
-                            @else
-                            <li>
-                                <a href="{{ route($item['route']) }}" class="sidebar-link {{ $item['route_active'] ? 'sidebar-link-active' : '' }}">{{ $item['title'] }}</a>
-                            </li>
-                        @endif
-                    @endforeach
+                                    <ul x-show="open" x-collapse class="sidebar-dropdown">
+                                        @foreach ($item['sub_menus'] as $subItem)
+                                            <li>
+                                                <a href="{{ route($subItem['route']) }}" class="sidebar-nested-link {{ $subItem['route_active'] ? 'sidebar-nested-link-active' : '' }}">{{ $subItem['title'] }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @elseif (!array_key_exists('route', $item))
+                                    <div class="divider"></div>
+                                @else
+                                <li>
+                                    <a href="{{ route($item['route']) }}" class="sidebar-link {{ $item['route_active'] ? 'sidebar-link-active' : '' }}">{{ $item['title'] }}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach ($sidebarMenus as $sidebarMenu)
+                            <div class="divider"></div>
+                            <span class="ml-4 mb-4">{{ $sidebarMenu['title'] }}</span>
+                            <div class="divider"></div>
+
+                            @foreach ($sidebarMenu['menus'] as $item)
+                                @if (array_key_exists('sub_menus', $item))
+                                    <li x-data="{ open: {{ $item['route_active'] ? 'true' : 'false' }} }">
+                                        <button @click="open = !open" class="sidebar-dropdown-button">
+                                            <span class="text-sm font-medium">{{ $item['title'] }}</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="sidebar-dropdown-icon" :class="{ 'open': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+
+                                        <ul x-show="open" x-collapse class="sidebar-dropdown">
+                                            @foreach ($item['sub_menus'] as $subItem)
+                                                <li>
+                                                    <a href="{{ route($subItem['route']) }}" class="sidebar-nested-link {{ $subItem['route_active'] ? 'sidebar-nested-link-active' : '' }}">{{ $subItem['title'] }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @elseif(!array_key_exists('route', $item))
+                                    <div class="divider"></div>
+                                @else
+                                    <li>
+                                        <a href="{{ route($item['route']) }}" class="sidebar-link {{ $item['route_active'] ? 'sidebar-link-active' : '' }}">{{ $item['title'] }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </div>

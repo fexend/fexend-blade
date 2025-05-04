@@ -37,7 +37,19 @@ class SidebarComposer
             };
 
             $view->with('sidebarContent', $sidebarContent);
+            $view->with('sidebarMenus', self::composeAllMenu());
         }
+    }
+
+    public function composeAllMenu(): array
+    {
+        return [
+            // self::dashboard(),
+            // self::setting(),
+            self::element(),
+            self::component(),
+            self::pages(),
+        ];
     }
 
 
@@ -294,6 +306,61 @@ class SidebarComposer
 
     public static function pages()
     {
-        //
+        return [
+            'title' => 'Pages',
+            'route_prefix' => 'pages',
+            'route_active' => in_array(request()->route()->getName(), ['pages', 'pages.login', 'pages.register', 'pages.forgot-password', 'pages.reset-password', 'pages.resend-verification-email']),
+            'menus' => [
+                [
+                    'title' => 'Login',
+                    'route' => 'pages.login',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.login']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Register',
+                    'route' => 'pages.register',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.register']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Forgot Password',
+                    'route' => 'pages.forgot-password',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.forgot-password']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Reset Password',
+                    'route' => 'pages.reset-password',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.reset-password']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Resend Verification',
+                    'route' => 'pages.resend-verification-email',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.resend-verification-email']),
+                    'permission_names' => [],
+                ],
+                [],
+                [
+                    'title' => 'Layouts 1',
+                    'route' => 'pages.layouts-1',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.layouts-1']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Layouts 2',
+                    'route' => 'pages.layouts-2',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.layouts-2']),
+                    'permission_names' => [],
+                ],
+                [
+                    'title' => 'Layouts 3',
+                    'route' => 'pages.layouts-3',
+                    'route_active' => in_array(request()->route()->getName(), ['pages.layouts-3']),
+                    'permission_names' => [],
+                ]
+            ]
+        ];
     }
 }
