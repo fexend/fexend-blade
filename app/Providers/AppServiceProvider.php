@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
         Model::shouldBeStrict();
 
         Gate::define('viewPulse', function (User $user) {
-            return in_array($user->email, explode(',', env('PULSE_USERS', '')));
+            return in_array($user->email, explode(',', env('PULSE_USERS', ''))) or $user->hasRole('superuser');
         });
     }
 }
