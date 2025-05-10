@@ -1,0 +1,105 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ namespacedRequests }}
+use Illuminate\Container\Attributes\DB;
+use Illuminate\Container\Attributes\Log;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
+final class {{ class }} extends Controller implements HasMiddleware
+{
+    /**
+     * Instantiate a new {{ class }} instance.
+     */
+    public function __construct(
+        #[DB('pgsql')] protected $db,
+        #[Log] protected $log
+    ) {
+        // body
+    }
+
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permissions:viewList permissionName', only: ['index']),
+            new Middleware('permissions:create permissionName', only: ['store']),
+            new Middleware('permissions:viewDetail permissionName', only: ['show']),
+            new Middleware('permissions:update permissionName', only: ['update']),
+            new Middleware('permissions:delete permissionName', only: ['destroy']),
+        ];
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store({{ storeRequest }} $request)
+    {
+        $this->db->beginTransaction();
+
+        try {
+            //
+        } catch (\Throwable $th) {
+            $this->db->rollBack();
+            $this->log->error($th);
+        }
+
+        $this->db->commit();
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show({{ model }} ${{ modelVariable }})
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
+    {
+        $this->db->beginTransaction();
+
+        try {
+            //
+        } catch (\Throwable $th) {
+            $this->db->rollBack();
+            $this->log->error($th);
+        }
+
+        $this->db->commit();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy({{ model }} ${{ modelVariable }})
+    {
+        $this->db->beginTransaction();
+
+        try {
+            //
+        } catch (\Throwable $th) {
+            $this->db->rollBack();
+            $this->log->error($th);
+        }
+
+        $this->db->commit();
+    }
+}
