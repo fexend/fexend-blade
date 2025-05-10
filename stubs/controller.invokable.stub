@@ -1,0 +1,40 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Container\Attributes\DB;
+use Illuminate\Container\Attributes\Log;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+
+final class {{ class }} extends Controller implements HasMiddleware
+{
+    /**
+     * Instantiate a new {{ class }} instance.
+     */
+    public function __construct(
+        #[DB('pgsql')] protected $db,
+        #[Log] protected $log
+    ) {
+        // body
+    }
+
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
+    {
+        //
+    }
+}
