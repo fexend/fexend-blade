@@ -2,10 +2,12 @@
 
 namespace {{ namespace }};
 
+use App\Supports\Carbon;
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Container\Attributes\Log;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -27,9 +29,9 @@ final class {{ class }} extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permissions:viewList permissionName', only: ['view list']),
+            new Middleware('permissions:viewList permissionName', only: ['index', 'getData']),
             new Middleware('permissions:create permissionName', only: ['store']),
-            new Middleware('permissions:viewDetail permissionName', only: ['view detail']),
+            new Middleware('permissions:viewDetail permissionName', only: ['show']),
             new Middleware('permissions:update permissionName', only: ['update']),
             new Middleware('permissions:delete permissionName', only: ['destroy']),
         ];
@@ -41,6 +43,24 @@ final class {{ class }} extends Controller implements HasMiddleware
     public function index()
     {
         //
+    }
+
+    /**
+     * Get the data for the listing of the resource.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getData(Request $request): JsonResponse
+    {
+        $query = null;
+
+        return datatables($query)
+            ->addIndexColumn()
+            ->editColumn('created_at', function ($customer) {
+                return Carbon::parse($customer->created_at)->getDateTimeInformativeWithTimezone();
+            })
+            ->make(true);
     }
 
     /**
