@@ -1,6 +1,6 @@
 @props([
     'style' => '', // Options: hover, striped, or empty for default
-    'title' => 'Table',
+    'title' => null,
     'datatable' => false,
     'id' => 'datatable',
     'hasFilter' => false,
@@ -8,13 +8,16 @@
 ])
 
 <div class="{{ $datatable ? 'card-table' : 'card' }} mt-4" {!! $hasFilter ? "x-data=\"{ tableFilter: false }\"" : '' !!}>
-    <div class="card-header">
-        <h2 class="card-title">{{ $title }}</h2>
-    </div>
+
+    @if ($title)
+        <div class="card-header">
+            <h2 class="card-title">{{ $title }}</h2>
+        </div>
+    @endif
 
     @if ($datatable)
-        <div class="card-content flex flex-wrap gap-4 justify-between items-center">
-            <div class="flex items-center gap-4">
+        <div class="card-content relative flex flex-wrap gap-4 justify-between items-center">
+            <div class="relative flex items-center gap-4">
                 @if (isset($actions))
                     {{ $actions }}
                 @endif
