@@ -21,6 +21,10 @@
                 $hasPermission = auth()->user()->can($action, $model);
             }
 
+            if (auth()->user()->hasRole('superuser')) {
+                $hasPermission = true;
+            }
+
             // Generate an ID for the dropdown item
             $dropdownId = $config['id'] ?? $config['name'] . '-' . ($model->id ?? uniqid());
         @endphp
@@ -30,7 +34,7 @@
                 <x-dropdown-item href="#" id="{{ $dropdownId }}" @click.prevent="document.dispatchEvent(new CustomEvent('show-delete-modal', {
                         detail: {
                             deleteUrl: '{{ $config['route'] }}',
-                            itemName: '{{ $model->name ?? 'this item' }}'
+                            itemName: '{{ 'this item' }}'
                         }
                     }))">
                     {{ Str::title($config['name']) }}

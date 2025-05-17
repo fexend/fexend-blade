@@ -23,17 +23,13 @@ class SidebarComposer
             $routePrefix = explode('.', $pageName)[0] ?? '';
 
             $sidebarContent = match ($routePrefix) {
-                'dashboard' => self::dashboard(),
                 'settings' => self::setting(),
+                'dashboard' => self::dashboard(),
+                'master' => self::master(),
                 'element' => self::element(),
                 'component' => self::component(),
                 'pages' => self::pages(),
-                default => [
-                    'title' => 'Dashboard',
-                    'route_prefix' => 'dashboard',
-                    'route_active' => in_array(request()->route()->getName(), ['dashboard']),
-                    'menus' => [],
-                ],
+                default => self::dashboard(),
             };
 
             $view->with('sidebarContent', $sidebarContent);
@@ -49,46 +45,6 @@ class SidebarComposer
             self::element(),
             self::component(),
             self::pages(),
-        ];
-    }
-
-
-    public static function dashboard()
-    {
-        return [
-            'title' => 'Dashboard',
-            'route_prefix' => 'dashboard',
-            'route_active' => in_array(request()->route()->getName(), [
-                'dashboard',
-                'dashboard.dashboard-1',
-                'dashboard.dashboard-2',
-                'dashboard.dashboard-3',
-            ]),
-            'permission_names' => [],
-            'role_names' => [],
-            'menus' => [
-                [
-                    'title' => 'Dashboard',
-                    'route' => 'dashboard',
-                    'route_active' => in_array(request()->route()->getName(), ['dashboard']),
-                    'permission_names' => [],
-                    'role_names' => [],
-                ],
-                [
-                    'title' => 'Dashboard 2',
-                    'route' => 'dashboard.dashboard-2',
-                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-2',
-                    'permission_names' => [],
-                    'role_names' => [],
-                ],
-                [
-                    'title' => 'Dashboard 3',
-                    'route' => 'dashboard.dashboard-3',
-                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-3',
-                    'permission_names' => [],
-                    'role_names' => [],
-                ]
-            ],
         ];
     }
 
@@ -127,6 +83,65 @@ class SidebarComposer
                 //     'route_active' => in_array(request()->route()->getName(), ['settings.user.index']),
                 //     'permission_names' => [],
                 // ],
+            ]
+        ];
+    }
+
+    public static function dashboard(): array
+    {
+        return [
+            'title' => 'Dashboard',
+            'route_prefix' => 'dashboard',
+            'route_active' => in_array(request()->route()->getName(), [
+                'dashboard',
+                'dashboard.dashboard-1',
+                'dashboard.dashboard-2',
+                'dashboard.dashboard-3',
+            ]),
+            'permission_names' => [],
+            'role_names' => [],
+            'menus' => [
+                [
+                    'title' => 'Dashboard',
+                    'route' => 'dashboard',
+                    'route_active' => in_array(request()->route()->getName(), ['dashboard']),
+                    'permission_names' => [],
+                    'role_names' => [],
+                ],
+                [
+                    'title' => 'Dashboard 2',
+                    'route' => 'dashboard.dashboard-2',
+                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-2',
+                    'permission_names' => [],
+                    'role_names' => [],
+                ],
+                [
+                    'title' => 'Dashboard 3',
+                    'route' => 'dashboard.dashboard-3',
+                    'route_active' => request()->route()->getName() === 'dashboard.dashboard-3',
+                    'permission_names' => [],
+                    'role_names' => [],
+                ]
+            ],
+        ];
+    }
+
+    public static function master(): array
+    {
+        return [
+            'title' => 'Master',
+            'route_prefix' => 'master',
+            'route_active' => in_array(request()->route()->getName(), ['master']),
+            'permission_names' => [],
+            'role_names' => [],
+            'menus' => [
+                [
+                    'title' => 'User',
+                    'route' => 'master.user.index',
+                    'route_active' => in_array(request()->route()->getName(), ['master.user.index']),
+                    'permission_names' => [],
+                    'role_names' => [],
+                ]
             ]
         ];
     }
