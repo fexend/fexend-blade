@@ -6,4 +6,6 @@ return [
     App\Providers\FolioServiceProvider::class,
     App\Providers\TelescopeServiceProvider::class,
     App\Providers\ViewServiceProvider::class,
+
+    Yajra\DataTables\DataTablesServiceProvider::class,
 ];

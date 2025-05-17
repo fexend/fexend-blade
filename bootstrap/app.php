@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             Route::group(['middleware' => 'web'], function () {
                 Route::middleware([])->group(base_path("routes/web/auth.php"));
+                Route::middleware(['auth',  'role:superuser'])->prefix('settings')->name("settings.")->group(base_path("routes/web/settings.php"));
                 Route::middleware([])->group(base_path("routes/global/file.php"));
             });
         }

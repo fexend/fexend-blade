@@ -132,22 +132,82 @@ name('component.modal');
         </x-slot>
 
         <div class="mb-6">
-            <x-modal>
-                <x-slot name="trigger">
-                    <x-button type="primary">Custom Button Trigger</x-button>
-                </x-slot>
-                <p>Modal with custom trigger button.</p>
+            <x-modal id="js-triggered-modal" title="JavaScript Triggered Modal">
+                <p>This modal can be triggered by JavaScript.</p>
             </x-modal>
+
+            <x-button class="mb-4" id="js-modal-trigger">Trigger Modal with JavaScript</x-button>
+
+            <script>
+                document.getElementById('js-modal-trigger').addEventListener('click', function() {
+                    document.dispatchEvent(new CustomEvent('open-modal', {
+                        detail: 'js-triggered-modal'
+                    }));
+                });
+            </script>
         </div>
 
         <div class="rounded-md">
             <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
-&lt;x-modal&gt;
-    &lt;x-slot name="trigger"&gt;
-        &lt;x-button type="primary"&gt;Custom Button Trigger&lt;/x-button&gt;
-    &lt;/x-slot&gt;
-    &lt;p&gt;Modal with custom trigger button.&lt;/p&gt;
+&lt;x-modal id="js-triggered-modal" title="JavaScript Triggered Modal"&gt;
+    &lt;p&gt;This modal can be triggered by JavaScript.&lt;/p&gt;
 &lt;/x-modal&gt;
+
+&lt;button id="js-modal-trigger"&gt;Trigger Modal with JavaScript&lt;/button&gt;
+
+&lt;script&gt;
+    document.getElementById('js-modal-trigger').addEventListener('click', function() {
+        document.dispatchEvent(new CustomEvent('open-modal', {
+            detail: 'js-triggered-modal'
+        }));
+    });
+&lt;/script&gt;
+            </code></pre>
+        </div>
+    </x-card>
+
+    <!-- Data Table Integration Example -->
+    <x-card class="mb-6">
+        <x-slot name="header">
+            <h2 class="card-title">Data Table Action Integration</h2>
+        </x-slot>
+
+        <p class="mb-4">You can use dropdown items with custom IDs to trigger modals:</p>
+
+        <div class="rounded-md">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-php whitespace-pre">
+// In your controller:
+$configs = [
+    [
+        'name' => 'delete',
+        'route' => route('items.destroy', $item->id),
+        'uses_modal' => true,
+        'id' => 'delete-item-' . $item->id,  // Adding custom ID
+    ],
+    [
+        'name' => 'custom-action',
+        'route' => '#',
+        'id' => 'custom-action-' . $item->id,  // Adding custom ID
+    ],
+];
+            </code></pre>
+        </div>
+
+        <p class="mt-4">You can also trigger the modal directly with JavaScript:</p>
+
+        <div class="rounded-md">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-javascript whitespace-pre">
+// Using the custom ID with jQuery
+$('#custom-action-123').click(function(e) {
+    e.preventDefault();
+    document.dispatchEvent(new CustomEvent('open-modal', { detail: 'your-modal-id' }));
+});
+
+// Or with vanilla JavaScript
+document.getElementById('custom-action-123').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.dispatchEvent(new CustomEvent('open-modal', { detail: 'your-modal-id' }));
+});
             </code></pre>
         </div>
     </x-card>

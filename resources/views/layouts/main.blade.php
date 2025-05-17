@@ -75,6 +75,8 @@
     sidebarOpen: {{ $isSidebarOpen ? 'true' : 'false' }},
     mobileMenuOpen: false,
     isMobile: window.innerWidth < 768,
+    deleteUrl: '',
+    itemToDelete: '',
     toggleDarkMode() {
         this.darkMode = !this.darkMode;
         localStorage.setItem('darkMode', this.darkMode);
@@ -83,6 +85,13 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+    },
+    initDeleteModal() {
+        document.addEventListener('show-delete-modal', (event) => {
+            this.deleteUrl = event.detail.deleteUrl;
+            this.itemToDelete = event.detail.itemName;
+            document.dispatchEvent(new CustomEvent('open-modal', { detail: 'delete-confirmation-modal' }));
+        });
     }
 }" x-init="window.addEventListener('resize', () => {
     if (window.innerWidth < 1024) sidebarOpen = false;
@@ -94,7 +103,8 @@ setTimeout(() => {
     setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
     }, 300);
-}, 500);">
+}, 500);
+initDeleteModal();">
 
     <x-layouts.loading></x-layouts.loading>
 
@@ -136,8 +146,34 @@ setTimeout(() => {
     @endif
 
     @if (session('error'))
-        <x-flash-message type="error" message="{{ session('errorpa') }}" />
+        <x-flash-message type="error" message="{{ session('error') }}" />
     @endif
+
+    @if (session('info'))
+        <x-flash-message type="info" message="{{ session('info') }}" />
+    @endif
+
+    <x-validation-error-message />
+
+    <!-- Delete Confirmation Modal -->
+    <x-modal id="delete-confirmation-modal" title="Delete Confirmation" type="error" size="md" :blur="true" :closeOnClickOutside="true" :showCloseButton="false">
+        <div class="p-5 text-center">
+            <p class="mb-5" x-text="'Are you sure you want to delete ' + itemToDelete + '? This action cannot be undone.'"></p>
+
+            <form x-bind:action="deleteUrl" method="POST" class="flex justify-center gap-3">
+                @csrf
+                @method('DELETE')
+
+                <x-button type="button" @click="document.dispatchEvent(new CustomEvent('close-modal', { detail: 'delete-confirmation-modal' }))" class="button-info-soft">
+                    Cancel
+                </x-button>
+
+                <x-button type="submit" class="button-danger-soft">
+                    Delete
+                </x-button>
+            </form>
+        </div>
+    </x-modal>
 
     @isset($scripts)
         {{ $scripts }}

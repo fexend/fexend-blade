@@ -38,13 +38,25 @@
                 document.body.classList.remove('overflow-hidden');
             }
         });
+
+        document.addEventListener('open-modal', event => {
+            if (event.detail === '{{ $id }}') {
+                this.open = true;
+            }
+        });
+
+        document.addEventListener('close-modal', event => {
+            if (event.detail === '{{ $id }}') {
+                this.open = false;
+            }
+        });
     }
 }" @keydown.window.escape="open = false" id="{{ $id }}-container">
 
     @if (!isset($trigger))
-        <button @click="open = true" class="{{ $triggerButtonClass }}">
+        {{-- <button @click="open = true" class="{{ $triggerButtonClass }}">
             {{ $triggerButtonText }}
-        </button>
+        </button> --}}
     @else
         <div @click="open = true">
             {{ $trigger }}
