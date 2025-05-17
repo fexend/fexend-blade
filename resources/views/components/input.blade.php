@@ -14,7 +14,7 @@
 @endphp
 
 @if (!$icon)
-    <div class="form-group mb-2 md:mb-3 lg:mb-4">
+    <div class="form-group">
         @if ($label)
             <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
         @endif
@@ -30,7 +30,7 @@
 @if ($icon)
 
     @if ($iconPosition === 'left')
-        <div class="form-group input-icon-left mb-2 md:mb-3 lg:mb-4">
+        <div class="form-group input-icon-left">
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif
@@ -47,7 +47,7 @@
     @endif
 
     @if ($iconPosition !== 'left')
-        <div class="form-group input-icon-right mb-2 md:mb-3 lg:mb-4">
+        <div class="form-group input-icon-right">
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif

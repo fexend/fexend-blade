@@ -14,6 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::group(['middleware' => 'web'], function () {
                 Route::middleware([])->group(base_path("routes/web/auth.php"));
                 Route::middleware(['auth',  'role:superuser'])->prefix('settings')->name("settings.")->group(base_path("routes/web/settings.php"));
+                Route::middleware(['auth'])->prefix('master')->name("master.")->group(base_path("routes/web/master.php"));
+
+                Route::prefix('select-option')->name("select-option.")->group(base_path("routes/web/select.php"));
                 Route::middleware([])->group(base_path("routes/global/file.php"));
             });
         }

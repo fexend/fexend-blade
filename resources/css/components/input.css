@@ -118,9 +118,7 @@ label input[type="checkbox"] {
 }
 
 .form-group {
-    @apply flex
-	flex-col
-	mt-4;
+    @apply flex flex-col mt-4 mb-2 md:mb-3 lg:mb-4;
 }
 
 .form-sm {
