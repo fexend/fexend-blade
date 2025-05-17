@@ -33,11 +33,11 @@ final class RoleController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:viewList role', only: ['index', 'getData']),
-            new Middleware('permission:create role', only: ['create', 'store']),
-            new Middleware('permission:viewDetail role', only: ['show']),
-            new Middleware('permission:update role', only: ['edit', 'update']),
-            new Middleware('permission:delete role', only: ['destroy']),
+            new Middleware('permission:role view-list', only: ['index', 'getData']),
+            new Middleware('permission:role create', only: ['create', 'store']),
+            new Middleware('permission:role view-detail', only: ['show']),
+            new Middleware('permission:role update', only: ['edit', 'update']),
+            new Middleware('permission:role delete', only: ['destroy']),
         ];
     }
 
@@ -226,6 +226,10 @@ final class RoleController extends Controller implements HasMiddleware
     public function destroy(Role $role)
     {
         $this->db->beginTransaction();
+
+        if ($role->name === "superuser") {
+            abort(403, "You can't delete the superuser role.");
+        }
 
         try {
             $role->delete();

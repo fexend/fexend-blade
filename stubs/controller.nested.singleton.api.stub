@@ -29,10 +29,11 @@ final class {{ class }} extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            // new Middleware('permissions:create permissionName', only: ['store']),
-            new Middleware('permissions:viewDetail permissionName', only: ['show']),
-            new Middleware('permissions:update permissionName', only: ['update']),
-            // new Middleware('permissions:delete permissionName', only: ['destroy']),
+            // new Middleware('permissions:permissionName view-list', only: ['index']),
+            // new Middleware('permissions:permissionName create', only: ['store']),
+            new Middleware('permissions:permissionName view-detail', only: ['show']),
+            new Middleware('permissions:permissionName update', only: ['update']),
+            // new Middleware('permissions:permissionName delete', only: ['destroy']),
         ];
     }
 

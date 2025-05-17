@@ -14,12 +14,13 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             'documentation' => [
-                'view',
+                'view-list',
             ],
 
             'user' => [
-                'view',
+                'view-list',
                 'create',
+                'view-detail',
                 'update',
                 'delete',
             ],
@@ -27,6 +28,7 @@ class PermissionSeeder extends Seeder
             'role' => [
                 'view',
                 'create',
+                'view-detail',
                 'update',
                 'delete',
             ],
@@ -35,7 +37,7 @@ class PermissionSeeder extends Seeder
         foreach ($permissions as $permission => $actions) {
             foreach ($actions as $action) {
                 Permission::create([
-                    'name' => $permission . '_' . $action,
+                    'name' => $permission . ' ' . $action,
                     'group' => $permission,
                     'guard_name' => 'web',
                 ]);
