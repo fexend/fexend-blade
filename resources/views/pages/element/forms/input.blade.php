@@ -27,14 +27,14 @@ name('element.forms.input');
 
         <div class="mb-6 space-y-4">
             <x-input name="username" label="Username" placeholder="Enter your username" class="form-input" />
-            <x-input name="password" type="password" label="Password" placeholder="Enter your password" class="form-input" />
+            <x-input-password name="password" label="Password" placeholder="Password...." required></x-input-password>
             <x-input name="email" type="email" label="Email" placeholder="Enter your email" required class="form-input" />
         </div>
 
         <div class="rounded-md">
             <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
 &lt;x-input name="username" label="Username" placeholder="Enter your username" class="form-input" /&gt;
-&lt;x-input name="password" type="password" label="Password" placeholder="Enter your password" class="form-input" /&gt;
+&lt;x-input-password name="password" label="Password" placeholder="Password...." required /&gt;
 &lt;x-input name="email" type="email" label="Email" placeholder="Enter your email" required class="form-input" /&gt;
             </code></pre>
         </div>
@@ -52,7 +52,7 @@ name('element.forms.input');
             <x-input name="text-example" type="text" label="Text Input" placeholder="Basic text input" class="form-input" />
             <x-input name="number-example" type="number" label="Number Input" class="form-input" />
             <x-input name="date-example" type="date" label="Date Input" class="form-input" />
-            <x-input name="password-example" type="password" label="Password Input" class="form-input" />
+            <x-input-password name="password" label="Password" placeholder="Password...." required></x-input-password>
             <x-input name="email-example" type="email" label="Email Input" class="form-input" />
         </div>
 
@@ -61,7 +61,7 @@ name('element.forms.input');
 &lt;x-input name="text-example" type="text" label="Text Input" placeholder="Basic text input" class="form-input" /&gt;
 &lt;x-input name="number-example" type="number" label="Number Input" class="form-input" /&gt;
 &lt;x-input name="date-example" type="date" label="Date Input" class="form-input" /&gt;
-&lt;x-input name="password-example" type="password" label="Password Input" class="form-input" /&gt;
+&lt;x-input-password name="password" label="Password" placeholder="Password...." required /&gt;
 &lt;x-input name="email-example" type="email" label="Email Input" class="form-input" /&gt;
             </code></pre>
         </div>
