@@ -68,11 +68,48 @@
 .flatpickr-day:focus {
     @apply cursor-pointer outline-none;
     @apply bg-background dark:bg-background-dark;
+    @apply border-primary dark:border-primary-dark;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange {
+    @apply bg-background dark:bg-background-dark;
     @apply border-background dark:border-background-dark;
 }
 
-.flatpickr-day.today {
-    @apply border-[var(--color-primary)] dark:border-[var(--color-primary-dark)];
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    @apply bg-primary dark:bg-primary-dark;
+    @apply border-primary dark:border-primary-dark;
+}
+
+.flatpickr-day.today.inRange {
+    @apply bg-background dark:bg-background-dark border border-[var(--color-primary)] dark:border-[var(--color-primary-dark)] rounded-full;
+}
+
+.flatpickr-day.today,
+.flatpickr-day.today.inRange {
+    @apply border-[var(--color-primary)] dark:border-[var(--color-primary-dark)] rounded-full;
 }
 
 .flatpickr-day.today:hover,
