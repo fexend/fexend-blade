@@ -108,8 +108,7 @@
 }
 
 .flatpickr-day.today,
-.flatpickr-day.today.inRange,
-.flatpickr-day .today .inRange {
+.flatpickr-day.today.inRange {
     @apply border-[var(--color-primary)] dark:border-[var(--color-primary-dark)] rounded-full;
 }
 
