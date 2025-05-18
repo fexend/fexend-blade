@@ -1,6 +1,6 @@
 @props(['type' => 'success', 'message' => null, 'alpineOpen' => false])
 
-<div x-data="{
+<div role="status" aria-live="polite" x-data="{
     show: {{ $alpineOpen ? 'true' : 'false' }},
     type: '{{ $type }}',
     message: '{{ $message }}',
