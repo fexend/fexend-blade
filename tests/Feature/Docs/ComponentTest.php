@@ -82,6 +82,11 @@ it('can render the table page', function () {
     $response->assertStatus(200);
 });
 
+it('can render the toast page', function () {
+    $response = $this->get(route("component.toast"));
+    $response->assertStatus(200);
+});
+
 it('can render the tooltip page', function () {
     $response = $this->get(route("component.tooltip"));
     $response->assertStatus(200);

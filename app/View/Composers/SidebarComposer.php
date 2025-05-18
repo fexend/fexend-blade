@@ -356,6 +356,13 @@ class SidebarComposer
                     'role_names' => [],
                 ],
                 [
+                    'title' => "Toast",
+                    'route' => 'component.toast',
+                    'route_active' => in_array(request()->route()->getName(), ['component.toast']),
+                    'permission_names' => [],
+                    'role_names' => [],
+                ],
+                [
                     'title' => "Tooltip",
                     'route' => 'component.tooltip',
                     'route_active' => in_array(request()->route()->getName(), ['component.tooltip']),
