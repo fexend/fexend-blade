@@ -2,22 +2,19 @@
 @import "flatpickr/dist/flatpickr.min.css";
 @import "select2/dist/css/select2.min.css";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 @source '../../storage/framework/views/*.php';
 @source "../**/*.blade.php";
 @source "../**/*.js";
 @source "../**/*.vue";
 
 @theme {
-    --font-sans: "Fexend", ui-sans-serif, system-ui, sans-serif,
+    --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-@import "./utilities.css";
-@import "./components.css";
 
 @theme {
     --color-primary: #615fff;
@@ -40,6 +37,9 @@
     --color-dark-secondary: #020618;
     --color-white-dark: #f1f5f9;
 }
+
+@import "./utilities.css";
+@import "./components.css";
 
 /* Base Styles */
 body {

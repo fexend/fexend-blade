@@ -1,9 +1,9 @@
 .table-container {
-    @apply h-full w-full relative;
+    @apply relative overflow-x-auto;
 }
 
 .table-container::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
 }
 
 table {

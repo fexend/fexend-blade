@@ -1,12 +1,13 @@
+@props([
+    'isSidebarOpen' => false,
+    'title' => 'Dashboard',
+    'pageDescription' => 'Fexend Dashboard description',
+])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @php
-        $isSidebarOpen = $attributes->get('isSidebarOpen', false);
-        $title = $attributes->get('title', 'Dashboard');
-        $pageDescription = $attributes->get('pageDescription', 'Fexend Dashboard description');
-    @endphp
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,10 +27,9 @@
 
     <title>{{ $title ?? '' }} | Fexend Dashboard</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script>
@@ -99,6 +99,8 @@
     if (window.innerWidth < 1024) sidebarOpen = false;
     isMobile = window.innerWidth < 768;
     if (!isMobile) mobileMenuOpen = false;
+    // Ensure sidebarOpen is false if isMobile is true
+    if (isMobile && sidebarOpen) sidebarOpen = false;
 });
 setTimeout(() => {
     document.getElementById('loading-screen').style.opacity = '0';
@@ -106,6 +108,8 @@ setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
     }, 300);
 }, 500);
+// Ensure sidebarOpen is false if isMobile is true on init
+if (window.innerWidth < 768 && sidebarOpen) sidebarOpen = false;
 initDeleteModal();">
 
     <x-layouts.loading></x-layouts.loading>
@@ -114,13 +118,13 @@ initDeleteModal();">
 
         <x-layouts.header></x-layouts.header>
 
-        <x-layouts.sidebar :sidebarMenuIcon="$attributes->get('sidebarMenuIcon', true)"></x-layouts.sidebar>
+        <x-layouts.sidebar :sidebarMenuIcon="$attributes->get('sidebarMenuIcon', true)" x-show="!isMobile"></x-layouts.sidebar>
 
         @if ($attributes->get('sidebarMenuIcon', true))
             <!-- Main content -->
             <div class="main-container" :class="{
-                'md:ml-80': sidebarOpen,
-                'md:ml-16': !sidebarOpen,
+                'md:ml-80': sidebarOpen && !isMobile,
+                'md:ml-16': !sidebarOpen && !isMobile,
                 'ml-0': true
             }">
                 {{ $slot }}
@@ -128,8 +132,8 @@ initDeleteModal();">
         @else
             <!-- Main content -->
             <div class="main-container" :class="{
-                'md:ml-64': sidebarOpen,
-                'md:ml-0': !sidebarOpen,
+                'md:ml-64': sidebarOpen && !isMobile,
+                'md:ml-0': !sidebarOpen && !isMobile,
                 'ml-0': true
             }">
                 {{ $slot }}
