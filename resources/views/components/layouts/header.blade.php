@@ -100,7 +100,10 @@
                         <div x-show="profileOpen" @click.away="profileOpen = false" x-transition class="absolute right-0 mt-2 w-40 bg-foreground dark:bg-foreground-dark rounded-lg shadow-lg z-10">
                             <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm">Profile</a>
                             <a href="/src/settings/index.html" class="block px-4 py-2 text-sm">Settings</a>
-                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm">Logout</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-sm">Logout</button>
+                            </form>
                         </div>
                     </div>
                 </div>
