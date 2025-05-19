@@ -9,6 +9,10 @@
             <a href="{{ route('settings.role.create') }}" class="button button-primary">Create Role</a>
         </x-slot>
 
+        <x-slot name="search">
+            <x-input-search id="search" label="Search" name="search"></x-input-search>
+        </x-slot>
+
         <x-slot name="thead">
             <tr>
                 <th>#</th>
@@ -59,6 +63,11 @@
                         }
                     ]
                 });
+
+                $('.dt-search').hide();
+                $('#search').on('keyup', debounce(function() {
+                    $('#roles-table').DataTable().search(this.value).draw();
+                }, 500));
             });
         </script>
     </x-slot>
