@@ -1,0 +1,177 @@
+version: '3.8'
+
+networks:
+  laravel_app_network:
+    driver: bridge
+
+services:
+  # PHP-FPM Service (Laravel App) - Profile: fpm
+  app-fpm:
+    build:
+      context: .
+      dockerfile: DockerFiles/php-fpm.Dockerfile
+    container_name: laravel_app_fpm
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app-fpm
+      SERVICE_TAGS: dev,fpm
+      APP_NAME: Laravel
+      APP_ENV: local
+      APP_KEY: # Paste your APP_KEY here or ensure .env file is used
+      APP_DEBUG: true
+      APP_URL: http://localhost
+      LOG_CHANNEL: stack
+      LOG_LEVEL: debug
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB:-laravel_db}
+      DB_USERNAME: ${POSTGRES_USER:-laravel_user}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-laravel_password}
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./DockerFiles/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - laravel_app_network
+    depends_on:
+      - db
+    profiles:
+      - fpm
+
+  # Nginx Service - Only for FPM profile
+  nginx:
+    build:
+      context: .
+      dockerfile: DockerFiles/nginx.Dockerfile
+    container_name: laravel_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443" # If you set up SSL in Nginx
+    volumes:
+      - ./:/var/www/html
+      - ./storage/logs/nginx/:/var/log/nginx
+    networks:
+      - laravel_app_network
+    depends_on:
+      - app-fpm
+    profiles:
+      - fpm
+
+  # FrankenPHP Service - Profile: frankenphp
+  app-frankenphp:
+    build:
+      context: .
+      dockerfile: DockerFiles/frankenphp.Dockerfile
+    container_name: laravel_app_frankenphp
+    restart: unless-stopped
+    ports:
+      - "80:80" # FrankenPHP (Caddy) will listen on port 80
+      - "443:443" # And 443 for HTTPS if Caddy is configured for it
+      # - "8080:8080" # If you configured Caddy for 8080
+    environment:
+      SERVICE_NAME: app-frankenphp
+      SERVICE_TAGS: dev,frankenphp
+      APP_NAME: Laravel
+      APP_ENV: local
+      APP_KEY: # Paste your APP_KEY here or ensure .env file is used
+      APP_DEBUG: true
+      APP_URL: http://localhost # FrankenPHP uses this
+      CADDY_GLOBAL_OPTIONS: "debug" # Example: Enable Caddy debug mode
+      # Database connection (ensure these are available for artisan commands etc.)
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB:-laravel_db}
+      DB_USERNAME: ${POSTGRES_USER:-laravel_user}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-laravel_password}
+    volumes:
+      - ./:/app # Matches WORKDIR in frankenphp.Dockerfile
+      # If you decide to use an external Caddyfile with FrankenPHP:
+      # - ./DockerFiles/frankenphp/Caddyfile:/etc/caddy/Caddyfile 
+    networks:
+      - laravel_app_network
+    depends_on:
+      - db
+    profiles:
+      - frankenphp
+
+  # Octane/Swoole Service - Profile: octane
+  app-octane:
+    build:
+      context: .
+      dockerfile: DockerFiles/octane-swoole.Dockerfile
+    container_name: laravel_app_octane
+    restart: unless-stopped
+    ports:
+      - "8000:8000" # Octane default port
+    environment:
+      SERVICE_NAME: app-octane
+      SERVICE_TAGS: dev,octane
+      APP_NAME: Laravel
+      APP_ENV: local
+      APP_KEY: # Paste your APP_KEY here or ensure .env file is used
+      APP_DEBUG: true
+      APP_URL: http://localhost:8000
+      LOG_CHANNEL: stack
+      LOG_LEVEL: debug
+      # Octane specific ENV (if any, check Laravel Octane docs)
+      OCTANE_SERVER: swoole
+      # Database connection
+      DB_CONNECTION: pgsql
+      DB_HOST: db # Service name of the PostgreSQL container
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB:-laravel_db}
+      DB_USERNAME: ${POSTGRES_USER:-laravel_user}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-laravel_password}
+    volumes:
+      - ./:/var/www/html # Mount app code
+      # Octane specific volumes (e.g. for Octane cache if needed)
+      # - octane_cache:/var/www/html/storage/octane # Example
+    networks:
+      - laravel_app_network
+    depends_on:
+      - db
+    profiles:
+      - octane
+
+  # PostgreSQL Service - Common for all profiles
+  db:
+    image: postgres:16-alpine
+    container_name: laravel_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-laravel_db}
+      POSTGRES_USER: ${POSTGRES_USER:-laravel_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-laravel_password}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT_HOST:-54320}:5432" # Expose on host, configurable via .env (DB_PORT_HOST)
+    networks:
+      - laravel_app_network
+    # No specific profile, so it's always available if any other service needs it
+
+  # Node.js Service (for Vite / npm tasks) - Common for all profiles if needed for assets
+  node:
+    image: node:22-alpine
+    container_name: laravel_node
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "${VITE_PORT_HOST:-5173}:${VITE_PORT_CONTAINER:-5173}" # Vite port, configurable
+    # Command to run Vite dev server.
+    # For development, you typically run this. For production, you'd build assets.
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port ${VITE_PORT_CONTAINER:-5173}"
+    networks:
+      - laravel_app_network
+    # No specific profile, so it's always available for asset building/serving
+    # If you only want it for FPM (where Nginx serves static assets), add 'fpm' profile.
+    # However, you might want to build assets regardless of the runner.
+
+volumes:
+  pg_data:
+  # octane_cache: # Uncomment if you defined octane_cache volume for app-octane
