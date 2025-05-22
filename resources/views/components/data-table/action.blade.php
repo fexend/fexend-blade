@@ -1,6 +1,7 @@
 @props(['configs', 'model'])
 
-<x-dropdown-menu :icon-only="true" button-class="button button-primary-soft">
+<x-dropdown-menu :icon-only="true" :buttonClass="'button button-secondary-soft'" :buttonText="__('')">
+
     @foreach ($configs as $config)
         @php
             $hasPermission = true;

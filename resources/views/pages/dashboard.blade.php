@@ -339,7 +339,7 @@ name('dashboard');
             </div>
         </div>
     </div>
-    <x-slot name="script">
+    <x-slot name="scripts">
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script>
             let primaryColor,

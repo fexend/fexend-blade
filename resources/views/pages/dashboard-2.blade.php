@@ -85,7 +85,7 @@ name('dashboard.dashboard-2');
         <!-- Recent Purchases -->
         <div class="card col-span-12 lg:col-span-4">
             <h3>Recent Purchases</h3>
-            <div class="table-container max-h-36 hide-scroll">
+            <div class="table-container max-h-36 overflow-y-auto">
                 <table>
                     <thead>
                         <tr>
