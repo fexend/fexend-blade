@@ -77,12 +77,17 @@ class SidebarComposer
                     'permission_names' => [],
                     'role_names' => [],
                 ],
-                // [
-                //     'title' => 'User',
-                //     'route' => 'settings.user.index',
-                //     'route_active' => in_array(request()->route()->getName(), ['settings.user.index']),
-                //     'permission_names' => [],
-                // ],
+                [
+                    "title" => 'Permission',
+                    'route' => 'settings.permission.index',
+                    'route_active' => in_array(request()->route()->getName(), [
+                        'settings.permission.index',
+                        'settings.permission.create',
+                        'settings.permission.edit',
+                    ]),
+                    'permission_names' => [],
+                    'role_names' => [],
+                ]
             ]
         ];
     }

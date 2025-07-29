@@ -32,6 +32,14 @@ class PermissionSeeder extends Seeder
                 'update',
                 'delete',
             ],
+
+            'permission' => [
+                'view-list',
+                'create',
+                'view-detail',
+                'update',
+                'delete',
+            ],
         ];
 
         foreach ($permissions as $permission => $actions) {
