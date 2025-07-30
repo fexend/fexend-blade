@@ -136,7 +136,7 @@ final class PermissionController extends Controller implements HasMiddleware
                     $permissions[] = [
                         'id' => Str::uuid(),
                         'name' => "{$group} {$value}",
-                        'guard_name' => $guardName[$key],
+                        'guard_name' => $guardName,
                         'group' => $group,
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
@@ -144,6 +144,10 @@ final class PermissionController extends Controller implements HasMiddleware
                 }
 
                 Permission::insert($permissions);
+
+                $createdPermissions = Permission::whereIn('name', array_column($permissions, 'name'))->get();
+                $superuserRole = \App\Models\Role::where('name', 'superuser')->first();
+                $superuserRole->syncPermissions($createdPermissions);
             }
         } catch (\Throwable $th) {
             $this->db->rollBack();
@@ -190,6 +194,9 @@ final class PermissionController extends Controller implements HasMiddleware
 
         try {
             $permission->update($request->validated());
+
+            $superuserRole = \App\Models\Role::where('name', 'superuser')->first();
+            $superuserRole->syncPermissions([$permission]);
         } catch (\Throwable $th) {
             $this->db->rollBack();
             $this->log->error($th);
@@ -215,6 +222,8 @@ final class PermissionController extends Controller implements HasMiddleware
         $this->db->beginTransaction();
 
         try {
+            $superuserRole = \App\Models\Role::where('name', 'superuser')->first();
+            $superuserRole->revokePermissionTo($permission);
             $permission->delete();
         } catch (\Throwable $th) {
             $this->db->rollBack();
