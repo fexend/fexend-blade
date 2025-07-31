@@ -5,6 +5,8 @@
     $iconPosition = $attributes->get('iconPosition', 'right');
     $name = $attributes->get('name');
     $type = $attributes->get('type', 'text');
+    $infoText = $attributes->get('infoText');
+    $info = $info ?? null;
 
     // Add Flatpickr support
     $hasFlatpickr = $attributes->has('data-flatpickr');
@@ -21,6 +23,12 @@
         <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
                 'value' => old($name) ?? $attributes->get('value'),
             ])->except(['class', 'type']) }} />
+        {{-- Prefer slot over attribute --}}
+        @if (isset($info))
+            {{ $info }}
+        @elseif ($infoText)
+            <span class="form-info">{{ $infoText }}</span>
+        @endif
         @error($name)
             <span class="form-error">{{ $message }}</span>
         @enderror
@@ -40,7 +48,11 @@
 
             {{ $iconContent }}
         </div>
-
+        @if (isset($info))
+            {{ $info }}
+        @elseif ($infoText)
+            <span class="form-info">{{ $infoText }}</span>
+        @endif
         @error($name)
             <span class="form-error">{{ $message }}</span>
         @enderror
@@ -57,6 +69,11 @@
 
             {{ $iconContent }}
         </div>
+        @if (isset($info))
+            {{ $info }}
+        @elseif ($infoText)
+            <span class="form-info">{{ $infoText }}</span>
+        @endif
 
         @error($name)
             <span class="form-error">{{ $message }}</span>

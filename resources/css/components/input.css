@@ -172,3 +172,7 @@ label input[type="checkbox"] {
 span.form-error {
     @apply text-danger dark:text-danger-dark;
 }
+
+span.form-info {
+    @apply text-info dark:text-info-dark text-sm mt-1;
+}

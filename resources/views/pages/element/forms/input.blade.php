@@ -278,6 +278,42 @@ name('element.forms.input');
         </x-card>
     </x-card>
 
+    <!-- Info Form -->
+    <x-card class="mb-4">
+        <x-slot name="header">
+            <h3 class="card-title">Info Form</h3>
+        </x-slot>
+
+        <div class="mb-6 space-y-4">
+            <x-input name="info_query" label="Info Query" placeholder="Enter info..." infoText="This is additional information" />
+            <x-input name="info_query" placeholder="Enter info..." infoText="This is additional information">
+                <x-slot name="info">
+                    <span class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-info-circle text-blue-500">
+                            <circle cx="12" cy="12" r="9" />
+                            <line x1="12" y1="8" x2="12" y2="8.01" />
+                            <line x1="12" y1="12" x2="12" y2="16" />
+                        </svg>
+                        <span class="text-sm text-gray-500">This is additional information</span>
+                    </span>
+                </x-slot>
+            </x-input>
+        </div>
+
+        <div class="rounded-md">
+            <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
+&lt;form class="flex items-center"&gt;
+    &lt;x-input name="search_query" placeholder="Search..." class="form-input rounded-r-none"&gt;
+        &lt;x-slot name="iconContent"&gt;
+            &lt;i class="ti ti-search"&gt;&lt;/i&gt;
+        &lt;/x-slot&gt;
+    &lt;/x-input&gt;
+    &lt;button type="submit" class="button button-primary h-fit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+                </code></pre>
+        </div>
+    </x-card>
+
     <!-- Component API Card -->
     <x-card class="mb-4">
         <x-table title="Input Component Props">
