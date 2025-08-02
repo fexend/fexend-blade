@@ -57,7 +57,7 @@ name('component.dropdown');
             </x-slot>
 
             <div class="mb-6">
-                <x-dropdown-menu :icon-only="true" button-class="button button-primary-outline">
+                <x-dropdown-menu :iconOnly="true" button-class="button button-primary-outline">
                     <x-dropdown-item href="#">Action 1</x-dropdown-item>
                     <x-dropdown-item href="#">Action 2</x-dropdown-item>
                 </x-dropdown-menu>
@@ -65,7 +65,7 @@ name('component.dropdown');
 
             <div class="rounded-md">
                 <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
-&lt;x-dropdown-menu :icon-only="true" button-class="button button-primary-outline"&gt;
+&lt;x-dropdown-menu :iconOnly="true" button-class="button button-primary-outline"&gt;
     &lt;x-dropdown-item href="#"&gt;Action 1&lt;/x-dropdown-item&gt;
     &lt;x-dropdown-item href="#"&gt;Action 2&lt;/x-dropdown-item&gt;
 &lt;/x-dropdown-menu&gt;

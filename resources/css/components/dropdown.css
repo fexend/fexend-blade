@@ -1,5 +1,7 @@
 .dropdown {
-    @apply absolute z-10 isolate mt-2 w-auto rounded-md bg-foreground dark:bg-foreground-dark shadow-md border border-slate-300 dark:border-slate-800;
+    @apply /* absolute z-10 isolate mt-2 w-auto rounded-md bg-foreground dark:bg-foreground-dark shadow-md border border-slate-300 dark:border-slate-800; */
+
+    fixed z-10 rounded-md bg-foreground dark:bg-foreground-dark shadow-md border border-slate-300 dark:border-slate-800;
 }
 
 .dropdown-content {
@@ -7,5 +9,23 @@
 }
 
 .dropdown-item {
-    @apply block px-4 py-2 text-sm text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800;
+    @apply block
+    w-full
+    px-4
+    py-2
+    text-left
+    text-sm
+    text-slate-700
+    dark:text-slate-200
+    hover:bg-slate-100
+    dark:hover:bg-slate-800
+    hover:text-slate-900
+    dark:hover:text-slate-100
+    focus:bg-slate-100
+    dark:focus:bg-slate-800
+    focus:text-slate-900
+    dark:focus:text-slate-100
+    focus:outline-none
+    transition-colors
+    duration-150;
 }
