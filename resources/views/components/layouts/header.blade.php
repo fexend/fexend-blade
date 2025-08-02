@@ -36,44 +36,46 @@
                             </svg>
                             <span class="navbar-notification-badge"></span>
                         </button>
-                        <div x-show="notificationOpen" @click.away="notificationOpen = false" x-transition class="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg z-10">
-                            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
-                                <div>
-                                    <button @click="activeTab = 'unread'" :class="{ 'font-bold': activeTab==='unread' }" class="mr-4">
-                                        Unread
-                                    </button>
-                                    <button @click="activeTab = 'read'" :class="{ 'font-bold': activeTab==='read' }">
-                                        Read
-                                    </button>
+                        <div x-show="notificationOpen" @click.away="notificationOpen = false" x-transition class="fixed md:absolute right-0 px-4 md:mx-0 mt-2 w-full md:w-80">
+                            <div class="bg-foreground dark:bg-foreground-dark rounded-lg shadow-lg z-10 border border-gray-200 dark:border-gray-700">
+                                <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                                    <div>
+                                        <button @click="activeTab = 'unread'" :class="{ 'font-bold': activeTab==='unread' }" class="mr-4">
+                                            Unread
+                                        </button>
+                                        <button @click="activeTab = 'read'" :class="{ 'font-bold': activeTab==='read' }">
+                                            Read
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="max-h-64 overflow-y-auto p-4">
-                                <template x-if="activeTab==='unread'">
-                                    <div>
-                                        <div class="text-sm mb-2">
-                                            <button class="hover:underline">
-                                                Mark all as read
-                                            </button>
+                                <div class="max-h-64 overflow-y-auto p-4">
+                                    <template x-if="activeTab==='unread'">
+                                        <div>
+                                            <div class="text-sm mb-2">
+                                                <button class="hover:underline">
+                                                    Mark all as read
+                                                </button>
+                                            </div>
+                                            <ul>
+                                                <li class="p-2 text-gray-500">
+                                                    No unread notifications.
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <ul>
-                                            <li class="p-2 text-gray-500">
-                                                No unread notifications.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </template>
-                                <template x-if="activeTab==='read'">
-                                    <div>
-                                        <div class="text-sm mb-2">
-                                            <button class="mr-2 hover:underline">Clear</button>
+                                    </template>
+                                    <template x-if="activeTab==='read'">
+                                        <div>
+                                            <div class="text-sm mb-2">
+                                                <button class="mr-2 hover:underline">Clear</button>
+                                            </div>
+                                            <ul>
+                                                <li class="p-2 text-gray-500">
+                                                    No read notifications.
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <ul>
-                                            <li class="p-2 text-gray-500">
-                                                No read notifications.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </template>
+                                    </template>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +99,7 @@
                         <button @click="profileOpen = !profileOpen" class="navbar-button">
                             <img src="{{ $userInformation->avatar }}" alt="User avatar" class="w-8 h-8 rounded-full" />
                         </button>
-                        <div x-show="profileOpen" @click.away="profileOpen = false" x-transition class="absolute right-0 mt-2 w-40 bg-foreground dark:bg-foreground-dark rounded-lg shadow-lg z-10">
+                        <div x-show="profileOpen" @click.away="profileOpen = false" x-transition class="absolute right-0 mt-2 w-40 bg-foreground dark:bg-foreground-dark rounded-lg shadow-lg z-10 border border-gray-200 dark:border-gray-700">
                             <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm">Profile</a>
                             <a href="/src/settings/index.html" class="block px-4 py-2 text-sm">Settings</a>
                             <form method="POST" action="{{ route('logout') }}">

@@ -10,6 +10,7 @@ import flatpickr from "flatpickr";
 import $ from "jquery";
 import select2 from "select2";
 import ApexCharts from "apexcharts";
+import * as Popper from "@popperjs/core";
 
 import DataTable from "datatables.net-dt";
 
@@ -28,6 +29,7 @@ window.select2 = select2;
 
 window.DataTable = DataTable;
 window.ApexCharts = ApexCharts;
+window.Popper = Popper;
 
 import "./custom/draganddrop";
 import "./custom/flatpickr";

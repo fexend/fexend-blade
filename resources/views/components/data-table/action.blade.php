@@ -1,6 +1,6 @@
 @props(['configs', 'model'])
 
-<x-dropdown-menu :icon-only="true" :buttonClass="'button button-secondary-soft'" :buttonText="__('')">
+<x-dropdown-menu :iconOnly="true" :buttonClass="'button button-secondary-soft'" :buttonText="__('')">
 
     @foreach ($configs as $config)
         @php
