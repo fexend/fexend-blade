@@ -6,7 +6,7 @@
 /storage/*.key
 /storage/pail
 /vendor
-.env.
+.env
 .env.testing
 .env.test
 .env.backup
