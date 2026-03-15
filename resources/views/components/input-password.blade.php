@@ -8,6 +8,7 @@
 
 <div x-data="{
     showPassword: false,
+    focused: false,
     password: '',
     isValid: false,
     validation: {{ $validation ? 'true' : 'false' }},
@@ -37,7 +38,7 @@
             this.requirements.special;
     }
 }" class="input-password">
-    <x-input name="{{ $name }}" x-bind:type="showPassword ? 'text' : 'password'" :label="$label" placeholder="{{ $placeholder }}" :required="$required" x-model="password" x-on:input="validatePassword()" x-bind:class="password && validation ? (isValid ? 'input-valid' : 'input-error') : ''">
+    <x-input name="{{ $name }}" x-bind:type="showPassword ? 'text' : 'password'" :label="$label" placeholder="{{ $placeholder }}" :required="$required" x-model="password" x-on:input="validatePassword()" x-on:focus="focused = true" x-on:blur="focused = false" x-bind:class="password && validation ? (isValid ? 'input-valid' : 'input-error') : ''">
         <x-slot name="iconContent">
             <button type="button" class="input-password-toggle" @click="showPassword = !showPassword" :aria-label="showPassword ? 'Hide password' : 'Show password'">
                 <svg x-show="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -55,7 +56,7 @@
         </x-slot>
     </x-input>
 
-    <div x-show="password && validation" class="input-password-criteria">
+    <div x-show="focused && validation" class="input-password-criteria">
         <div class="criteria-item" :class="requirements.length ? 'criteria-item-met' : ''">
             <svg x-show="requirements.length" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <svg x-show="!requirements.length" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
