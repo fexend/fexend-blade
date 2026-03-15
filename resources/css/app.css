@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@import "flatpickr/dist/flatpickr.min.css";
-@import "select2/dist/css/select2.min.css";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 @source '../../storage/framework/views/*.php';
@@ -12,11 +11,6 @@
     --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
-}
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
     --color-primary: #615fff;
     --color-primary-dark: #7c86ff;
     --color-secondary: #9333ea;
@@ -38,9 +32,6 @@
     --color-white-dark: #f1f5f9;
 }
 
-@import "./utilities.css";
-@import "./components.css";
-
 /* Base Styles */
 body {
     @apply font-sans text-base font-normal bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100;
@@ -50,54 +41,9 @@ body {
 html.dark body {
     @apply bg-background-dark text-foreground;
 }
-/* Group Hover Effects */
-.group:hover span {
-    @apply visible;
-}
 
-.group span {
-    @apply invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 dark:bg-gray-700 px-2 py-1.5 text-xs font-medium text-white;
-}
-
-/* Loading Animation */
-@keyframes loading {
-    0% {
-        transform: scale(0.3);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.2);
-        opacity: 0;
-    }
-}
-
-.loading-dot {
-    @apply w-4 h-4 rounded-full bg-primary dark:bg-primary-dark;
-    animation: loading 1s infinite ease-in-out;
-}
-
-.loading-dot:nth-child(1) {
-    animation-delay: 0.1s;
-}
-.loading-dot:nth-child(2) {
-    animation-delay: 0.2s;
-}
-.loading-dot:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-/* Mobile Menu Popup Styles */
-.mobile-menu {
-    @apply fixed bottom-0 left-0 right-0 p-2 flex justify-center z-50;
-}
-
-.mobile-menu-popup {
-    @apply bg-background dark:bg-background-dark fixed bottom-[60px] -translate-x-[50%] left-1/2 w-11/12 max-w-320 rounded-lg shadow-md z-50 transition-transform duration-200 ease-in-out;
-}
-
-div.hide-scroll::-webkit-scrollbar {
-    display: none;
-}
+@import "./utilities.css";
+@import "./layouts.css";
+@import "./components.css";
+@import "./forms.css";
+@import "./libs.css";
