@@ -16,8 +16,10 @@
         <label class="label">{{ $label }}</label>
     @endif
 
-    <div id="{{ $editorId }}" style="min-height: {{ $minHeight }};">
-        {{ $slot }}
+    <div class="wysiwyg-container">
+        <div id="{{ $editorId }}" class="wysiwyg-editor" style="min-height: {{ $minHeight }};">
+            {{ $slot }}
+        </div>
     </div>
 
     @if ($name)

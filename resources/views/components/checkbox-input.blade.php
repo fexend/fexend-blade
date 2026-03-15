@@ -11,29 +11,29 @@
 
 @if ($style === 'basic')
     <label for="{{ $id ?? $name }}" class="label-checkbox">
-        <input type="checkbox" {{ $attributes->merge(['class' => 'input-checkbox']) }} />
+        <input type="checkbox" {{ $attributes->merge(['class' => 'checkbox']) }} />
         {{ $slot }}
     </label>
     @error($name)
-        <span class="form-error">{{ $message }}</span>
+        <span class="form-feedback form-feedback-error">{{ $message }}</span>
     @enderror
 @endif
 
 @if ($style === 'divider')
     <label for="{{ $id ?? $name }}" class="label-checkbox-divider">
-        <input type="checkbox" {{ $attributes->merge(['class' => 'input-checkbox']) }} />
+        <input type="checkbox" {{ $attributes->merge(['class' => 'checkbox']) }} />
         <div>
             {{ $slot }}
         </div>
     </label>
     @error($name)
-        <span class="form-error">{{ $message }}</span>
+        <span class="form-feedback form-feedback-error">{{ $message }}</span>
     @enderror
 @endif
 
 @if ($style === 'card')
     <label for="{{ $id ?? $name }}" class="label-checkbox-card {{ $variant }}">
-        <input type="checkbox" {{ $attributes->merge(['class' => 'input-checkbox']) }} />
+        <input type="checkbox" {{ $attributes->merge(['class' => 'checkbox']) }} />
 
         <div>
             {{ $slot }}

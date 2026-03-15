@@ -1,7 +1,10 @@
 @php
-    $label = $attributes->get('label') ?? $slot;
+    $required = $attributes->get('required');
+    $name = $attributes->get('name');
+    $extraClass = $attributes->get('class', '');
+    $labelClass = 'label ' . ($required ? 'label-required ' : '') . $extraClass;
 @endphp
 
-<label for="{{ $attributes->get('for') }}" {{ $attributes->except(['for', 'required', 'class']) }} class="{{ $attributes->get('class') }} @error($attributes->get('name')) form-error @enderror">
-    {{ $label }} <span class="{{ $attributes->get('required') ? 'text-danger dark:text-danger-dark' : 'text-info dark:text-info-dark' }}">{{ $attributes->get('required') ? '*' : '*' }}</span>
+<label for="{{ $attributes->get('for') }}" {{ $attributes->except(['for', 'required', 'name', 'class']) }} class="{{ trim($labelClass) }}">
+    {{ $slot }}
 </label>

@@ -3,7 +3,7 @@
     'triggerButton' => '',
     'placement' => 'top',
     'offset' => '[0, 8]',
-    'contentClass' => 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg',
+    'contentClass' => '',
     'arrowClass' => 'popover-arrow',
     'triggerClass' => '',
 ])
@@ -57,7 +57,7 @@
             this.popperInstance.destroy();
         }
     }
-}" class="popover-wrapper" {{ $attributes }}>
+}" class="popover" {{ $attributes }}>
     <div x-ref="trigger" class="{{ $triggerClass }}" @if ($trigger == 'hover') x-on:mouseenter="show()"
             x-on:mouseleave="hide()"
         @else
@@ -65,7 +65,7 @@
         {{ $triggerButton ?: 'Open Popover' }}
     </div>
 
-    <div x-ref="popover" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="popover-content {{ $contentClass }}" style="display: none;" @if ($trigger === 'hover') x-on:mouseenter="show()"
+    <div x-ref="popover" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="popover-content {{ $contentClass }}" style="display: none; z-index: 50;" @if ($trigger === 'hover') x-on:mouseenter="show()"
             x-on:mouseleave="hide()" @endif>
         <div x-ref="arrow" class="popover-arrow {{ $arrowClass }}"></div>
         <div class="popover-body p-4">

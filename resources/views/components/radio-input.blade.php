@@ -8,12 +8,12 @@
 @endphp
 
 @if ($style === 'basic')
-    <label class="form-radio" for="{{ $attributes->get('id') ?? $attributes->get('name') }}">
+    <label class="label-radio" for="{{ $attributes->get('id') ?? $attributes->get('name') }}">
         <input type="radio" {{ $attributes }} />
         {{ $slot }}
     </label>
     @error($name)
-        <span class="form-error">{{ $message }}</span>
+        <span class="form-feedback form-feedback-error">{{ $message }}</span>
     @enderror
 @endif
 
@@ -26,7 +26,7 @@
         <input type="radio" {{ $attributes }} />
     </label>
     @error($name)
-        <span class="form-error">{{ $message }}</span>
+        <span class="form-feedback form-feedback-error">{{ $message }}</span>
     @enderror
 @endif
 
@@ -36,6 +36,6 @@
         <p class="text-sm font-medium">{{ $slot }}</p>
     </label>
     @error($name)
-        <span class="form-error">{{ $message }}</span>
+        <span class="form-feedback form-feedback-error">{{ $message }}</span>
     @enderror
 @endif
