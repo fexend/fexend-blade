@@ -84,25 +84,25 @@ Migrate from `fexend-html/src/elements/`:
 
 ### Auth Pages
 
-- [ ] Login (`pages/login.html`)
-- [ ] Register (`pages/register.html`)
-- [ ] Forgot Password (`pages/forgot-password.html`)
-- [ ] Reset Password (`pages/reset-password.html`)
-- [ ] Verify Email (`pages/verify-email.html`) ← missing in current blade
+- [x] Login (`pages/login.html`)
+- [x] Register (`pages/register.html`)
+- [x] Forgot Password (`pages/forgot-password.html`)
+- [x] Reset Password (`pages/reset-password.html`)
+- [x] Verify Email (`pages/verify-email.html`)
 
 ### App Pages
 
-- [ ] Calendar (`pages/calendar.html`) ← missing in current blade
-- [ ] Inbox (`pages/inbox.html`) ← missing in current blade
-- [ ] Invoice (`pages/invoice.html`) ← missing in current blade
-- [ ] Kanban (`pages/kanban.html`) ← missing in current blade
-- [ ] Users (`pages/users.html`)
+- [x] Calendar (`pages/calendar.html`)
+- [x] Inbox (`pages/inbox.html`)
+- [x] Invoice (`pages/invoice.html`)
+- [x] Kanban (`pages/kanban.html`)
+- [x] Users (`pages/users.html`)
 
 ### Error Pages
 
-- [ ] 404 (`pages/errors/404.html`) ← missing in current blade
-- [ ] 500 (`pages/errors/500.html`) ← missing in current blade
-- [ ] Maintenance (`pages/errors/maintenance.html`) ← missing in current blade
+- [x] 404 (`pages/errors/404.html`)
+- [x] 500 (`pages/errors/500.html`)
+- [x] Maintenance (`pages/errors/maintenance.html`)
 
 ### Settings
 
@@ -153,7 +153,7 @@ Pages that demonstrate/preview components (like a UI kit reference):
 - [ ] File Upload showcase
 - [ ] Date Picker showcase ← missing in current blade
 - [ ] WYSIWYG showcase ← missing in current blade
-- [ ] DataTable showcase ← missing in current blade
+- [x] DataTable showcase
 
 ---
 
