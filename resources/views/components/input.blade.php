@@ -20,17 +20,16 @@
         @if ($label)
             <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
         @endif
-        <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+        <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) input-error @enderror" {{ $attributes->merge([
                 'value' => old($name) ?? $attributes->get('value'),
             ])->except(['class', 'type']) }} />
-        {{-- Prefer slot over attribute --}}
         @if (isset($info))
             {{ $info }}
         @elseif ($infoText)
-            <span class="form-info">{{ $infoText }}</span>
+            <span class="form-feedback">{{ $infoText }}</span>
         @endif
         @error($name)
-            <span class="form-error">{{ $message }}</span>
+            <span class="form-feedback form-feedback-error">{{ $message }}</span>
         @enderror
     </div>
 @endif
@@ -42,19 +41,19 @@
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif
-            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) input-error @enderror" {{ $attributes->merge([
                     'value' => old($name) ?? $attributes->get('value'),
                 ])->except(['class', 'type']) }} />
 
-            {{ $iconContent }}
+            <span class="input-icon">{{ $iconContent }}</span>
         </div>
         @if (isset($info))
             {{ $info }}
         @elseif ($infoText)
-            <span class="form-info">{{ $infoText }}</span>
+            <span class="form-feedback">{{ $infoText }}</span>
         @endif
         @error($name)
-            <span class="form-error">{{ $message }}</span>
+            <span class="form-feedback form-feedback-error">{{ $message }}</span>
         @enderror
     @endif
 
@@ -63,20 +62,20 @@
             @if ($label)
                 <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
             @endif
-            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) form-error @enderror" {{ $attributes->merge([
+            <input type="{{ $type }}" class="{{ $attributes->get('class') }} @error($name) input-error @enderror" {{ $attributes->merge([
                     'value' => old($name) ?? $attributes->get('value'),
                 ])->except(['class', 'type']) }} />
 
-            {{ $iconContent }}
+            <span class="input-icon">{{ $iconContent }}</span>
         </div>
         @if (isset($info))
             {{ $info }}
         @elseif ($infoText)
-            <span class="form-info">{{ $infoText }}</span>
+            <span class="form-feedback">{{ $infoText }}</span>
         @endif
 
         @error($name)
-            <span class="form-error">{{ $message }}</span>
+            <span class="form-feedback form-feedback-error">{{ $message }}</span>
         @enderror
     @endif
 @endif

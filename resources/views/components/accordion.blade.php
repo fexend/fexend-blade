@@ -14,6 +14,6 @@
     $accordionClass = $variantClasses[$variant] ?? '';
 @endphp
 
-<div {{ $attributes }} x-data="{ openAccordion: null }">
+<div {{ $attributes->merge(['class' => $accordionClass]) }} x-data="{ openAccordion: null }">
     {{ $slot }}
 </div>
