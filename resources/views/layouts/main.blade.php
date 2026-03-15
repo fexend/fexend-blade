@@ -162,7 +162,7 @@ initDeleteModal();">
     <x-validation-error-message />
 
     <!-- Global Toast Component -->
-    <x-toast message="" type="success" :alpine-open="false" />
+    <x-toast position="top-right" />
 
     <!-- Delete Confirmation Modal -->
     <x-modal id="delete-confirmation-modal" title="Delete Confirmation" type="error" size="md" :blur="true" :closeOnClickOutside="true" :showCloseButton="false">

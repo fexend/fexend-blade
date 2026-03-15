@@ -26,19 +26,19 @@ name('component.toast');
         </x-slot>
 
         <div class="mb-6 space-x-4">
-            <x-button class="button-primary" x-data x-on:click="$dispatch('show-toast', {message: 'This is a success toast message', type: 'success'})">
+            <x-button class="button-primary" x-data x-on:click="$dispatch('show-toast', {title: 'Success', message: 'This is a success toast message', type: 'success'})">
                 Show Success Toast
             </x-button>
         </div>
 
         <div class="rounded-md">
             <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
-&lt;x-button class="button-primary" x-data x-on:click="$dispatch('show-toast', {message: 'This is a success toast message', type: 'success'})"&gt;
+&lt;x-button class="button-primary" x-data x-on:click="$dispatch('show-toast', {title: 'Success', message: 'This is a success toast message', type: 'success'})"&gt;
     Show Success Toast
 &lt;/x-button&gt;
 
-&lt;!-- Toast component will be triggered by the event --&gt;
-&lt;x-toast message="" type="success" :alpine-open="false" /&gt;
+&lt;!-- Toast is included globally in the main layout --&gt;
+&lt;x-toast position="top-right" /&gt;
             </code></pre>
         </div>
     </x-card>
@@ -52,16 +52,16 @@ name('component.toast');
         <p class="mb-4">The toast component supports different types to convey various levels of importance:</p>
 
         <div class="mb-6 space-x-2 flex flex-wrap gap-2">
-            <x-button class="button-success" x-data x-on:click="$dispatch('show-toast', {message: 'Operation completed successfully!', type: 'success'})">
+            <x-button class="button-success" x-data x-on:click="$dispatch('show-toast', {title: 'Success', message: 'Operation completed successfully!', type: 'success'})">
                 Success Toast
             </x-button>
-            <x-button class="button-warning" x-data x-on:click="$dispatch('show-toast', {message: 'Please proceed with caution', type: 'warning'})">
+            <x-button class="button-warning" x-data x-on:click="$dispatch('show-toast', {title: 'Warning', message: 'Please proceed with caution', type: 'warning'})">
                 Warning Toast
             </x-button>
-            <x-button class="button-danger" x-data x-on:click="$dispatch('show-toast', {message: 'An error occurred during the process', type: 'error'})">
+            <x-button class="button-danger" x-data x-on:click="$dispatch('show-toast', {title: 'Error', message: 'An error occurred during the process', type: 'danger'})">
                 Error Toast
             </x-button>
-            <x-button class="button-info" x-data x-on:click="$dispatch('show-toast', {message: 'Here is some helpful information', type: 'info'})">
+            <x-button class="button-info" x-data x-on:click="$dispatch('show-toast', {title: 'Info', message: 'Here is some helpful information', type: 'info'})">
                 Info Toast
             </x-button>
         </div>
@@ -168,22 +168,10 @@ name('component.toast');
 
             <x-slot name="tbody">
                 <tr>
-                    <td>type</td>
+                    <td>position</td>
                     <td>string</td>
-                    <td>'success'</td>
-                    <td>The toast type: success, warning, error, or info</td>
-                </tr>
-                <tr>
-                    <td>message</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>The message to display in the toast</td>
-                </tr>
-                <tr>
-                    <td>alpineOpen</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                    <td>Whether the toast should be open by default</td>
+                    <td>'top-right'</td>
+                    <td>Toast container position: top-right, top-left, top-center, bottom-right, bottom-left, bottom-center</td>
                 </tr>
             </x-slot>
         </x-table>
@@ -199,13 +187,15 @@ name('component.toast');
 
         <div class="rounded-md">
             <pre class="max-h-[500px] overflow-auto"><code class="language-blade whitespace-pre">
-&lt;!-- In your layout file --&gt;
-&lt;x-toast /&gt;
+&lt;!-- In your layout file (already included in x-main) --&gt;
+&lt;x-toast position="top-right" /&gt;
 
-&lt;!-- In your templates or components --&gt;
+&lt;!-- Dispatch from anywhere --&gt;
 &lt;button x-data @click="$dispatch('show-toast', {
+    title: 'Success',
     message: 'Your message here',
-    type: 'success' // or 'warning', 'error', 'info'
+    type: 'success', // primary, secondary, success, danger, warning, info
+    duration: 5000
 })"&gt;Show Toast&lt;/button&gt;
             </code></pre>
         </div>
@@ -228,35 +218,19 @@ name('component.toast');
         </ul>
     </x-card>
 
-    <!-- For demo purposes, include the toast component at the bottom of the page -->
-    <x-toast message="" type="success" :alpine-open="false" />
-
     <!-- Debugging Section -->
     <x-card class="mt-6">
         <x-slot name="header">
             <h2 class="card-title">Debug Toast</h2>
         </x-slot>
 
-        <script>
-            function showToastDebug() {
-                const event = new CustomEvent('show-toast', {
-                    detail: {
-                        message: 'This is a debug toast message',
-                        type: 'success'
-                    }
-                });
-                window.dispatchEvent(event);
-                console.log('Debug toast event dispatched', event);
-            }
-        </script>
-
         <div class="p-4">
-            <x-button class="button-primary" onclick="showToastDebug()">
-                Show Debug Toast (JS)
+            <x-button class="button-primary" x-data x-on:click="$dispatch('show-toast', {title: 'Debug', message: 'This is a debug toast message', type: 'primary'})">
+                Show Primary Toast
             </x-button>
 
-            <x-button class="button-success ml-2" x-data x-on:click="window.dispatchEvent(new CustomEvent('show-toast', {detail: {message: 'Direct Alpine dispatch', type: 'info'}}))">
-                Show Debug Toast (Alpine)
+            <x-button class="button-success ml-2" x-data x-on:click="$dispatch('show-toast', {title: 'Info', message: 'Direct Alpine dispatch', type: 'info'})">
+                Show Info Toast
             </x-button>
         </div>
     </x-card>

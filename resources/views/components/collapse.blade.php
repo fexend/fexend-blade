@@ -5,21 +5,12 @@
 ])
 
 @php
-    $classes = 'collapse-component';
-    switch ($variant) {
-        case 'bordered':
-            $classes .= ' collapse-bordered';
-            break;
-        case 'full-bordered':
-            $classes .= ' collapse-full-bordered';
-            break;
-        case 'separated':
-            $classes .= ' collapse-full-bordered collapse-separated';
-            break;
-        default:
-            $classes .= ' collapse-default';
-            break;
-    }
+    $classes = match($variant) {
+        'bordered'     => 'collapse-bordered',
+        'full-bordered'=> 'collapse-full-bordered',
+        'separated'    => 'collapse-full-bordered collapse-separated',
+        default        => '',
+    };
 @endphp
 
 <div {{ $attributes->merge(['class' => $classes]) }} x-data="{ open: {{ $open ? 'true' : 'false' }} }">
