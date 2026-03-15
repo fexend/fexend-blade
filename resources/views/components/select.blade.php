@@ -6,10 +6,11 @@
 
 <div class="form-group">
     @if ($label)
-        <x-label :for="$name" id="label-{{ $attributes->get('id') }}" :name="$name" :required="$required">{{ $label }}</x-label>
+        <x-label :for="$name" :name="$name" :required="$required">{{ $label }}</x-label>
     @endif
 
-    <select class="{{ $attributes->get('class') }} @error($name) input-error @enderror" {{ $attributes->except(['class']) }}>
+    <select class="select {{ $attributes->get('class') }} @error($name) input-error @enderror"
+        {{ $attributes->except(['class', 'label', 'required']) }}>
         {{ $slot }}
     </select>
 
