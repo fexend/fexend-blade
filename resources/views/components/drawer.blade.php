@@ -15,7 +15,7 @@
     position: '{{ $position }}',
     backdrop: {{ $backdrop ? 'true' : 'false' }},
     backdropBlur: {{ $backdropBlur ? 'true' : 'false' }}
-}" id="{{ $id }}" @open-drawer.window="if ($event.detail.id === '{{ $id }}') open = true" @close-drawer.window="if ($event.detail.id === '{{ $id }}' || $event.detail.id === 'all') open = false" class="drawer-container">
+}" id="{{ $id }}" @open-drawer.window="if ($event.detail.id === '{{ $id }}') open = true" @close-drawer.window="if ($event.detail.id === '{{ $id }}' || $event.detail.id === 'all') open = false">
     @if ($backdrop)
         <div x-show="open" x-transition.opacity :class="backdropBlur ? 'drawer-backdrop drawer-backdrop-blur' : 'drawer-backdrop'" @click="open = false"></div>
     @endif
@@ -28,7 +28,7 @@
                 @endif
 
                 @if ($closeButton)
-                    <button @click="open = false" class="button button-rounded button-primary drawer-close-button">
+                    <button @click="open = false" class="drawer-close-button" aria-label="Close drawer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>

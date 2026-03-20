@@ -1,406 +1,293 @@
 <?php
 use function Laravel\Folio\name;
 name('dashboard.dashboard-3');
-
 ?>
 
-<x-main :title="'Dashboard'">
-    <div class="">
-        <nav aria-label="Breadcrumb" class="breadcrumb">
-            <h2 class="title">Dashboard</h2>
-            <ol>
-                <li>
-                    <a href="/src/dashboard/dashboard.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                        Dashboard
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </div>
-
-    <!-- Metrics Cards Row -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Stock Levels Card -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Stock Levels</h3>
-                <div class="mt-4">
-                    <p class="text-2xl font-bold">1,234</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Total Items in Stock
-                    </p>
-                    <div class="mt-2">
-                        <span class="text-green-500">↑ 12%</span>
-                        <span class="text-sm text-gray-600 dark:text-gray-400">vs last month</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Order Status Card -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Order Status</h3>
-                <div class="mt-4">
-                    <p class="text-2xl font-bold">89</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Pending Orders
-                    </p>
-                    <div class="mt-2">
-                        <span class="text-red-500">↓ 3%</span>
-                        <span class="text-sm text-gray-600 dark:text-gray-400">vs last week</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Warehouse Utilization Card -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Warehouse Utilization</h3>
-                <div class="mt-4">
-                    <p class="text-2xl font-bold">78%</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Space Utilized
-                    </p>
-                    <div class="mt-2">
-                        <span class="text-yellow-500">→ 5%</span>
-                        <span class="text-sm text-gray-600 dark:text-gray-400">capacity remaining</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Detailed Sections -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        <!-- Stock Movement Table -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Recent Stock Movement</h3>
-                <div class="table-container max-h-56 overflow-y-auto hide-scroll">
-                    <table class="table-hover">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Quantity</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Product A</td>
-                                <td>50</td>
-                                <td>Inbound</td>
-                                <td>2024-03-15</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                            <tr>
-                                <td>Product B</td>
-                                <td>30</td>
-                                <td>Outbound</td>
-                                <td>2024-03-14</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Supplier Performance -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Supplier Performance</h3>
-                <div class="table-container h-auto max-h-56 overflow-y-auto hide-scroll">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead>
-                            <tr>
-                                <th class="table-header">Supplier</th>
-                                <th class="table-header">On-Time</th>
-                                <th class="table-header">Quality</th>
-                                <th class="table-header">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                            <tr>
-                                <td class="table-cell">Supplier A</td>
-                                <td class="table-cell">95%</td>
-                                <td class="table-cell">98%</td>
-                                <td class="table-cell">
-                                    <span class="badge badge-success-soft">Excellent</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-cell">Supplier B</td>
-                                <td class="table-cell">82%</td>
-                                <td class="table-cell">85%</td>
-                                <td class="table-cell">
-                                    <span class="badge badge-warning-soft">Good</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Analytics Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
-        <!-- Sales Trends Chart -->
-        <div class="card lg:col-span-2">
-            <div class="card-body">
-                <h3 class="card-title">Sales Trends</h3>
-                <div id="lineChart"></div>
-            </div>
-        </div>
-
-        <!-- Top Products -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Top Products</h3>
-                <ul class="space-y-2 max-h-56 overflow-y-auto hide-scroll">
-                    <li class="flex justify-between">
-                        <span>Product A</span>
-                        <span class="font-semibold">1,234 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product B</span>
-                        <span class="font-semibold">987 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Product C</span>
-                        <span class="font-semibold">654 units</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
+<x-main title="Dashboard 3">
     <x-slot name="scripts">
-        <script>
-            let primaryColor,
-                secondaryColor,
-                successColor,
-                infoColor,
-                dangerColor,
-                warningColor;
-            const getPrimaryColor = () => {
-                primaryColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-primary")
-                    .trim() || "#0d6efd";
-                secondaryColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-secondary")
-                    .trim() || "#6c757d";
-                successColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-success")
-                    .trim() || "#198754";
-                infoColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-info")
-                    .trim() || "#0dcaf0";
-                dangerColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-danger")
-                    .trim() || "#dc3545";
-                warningColor =
-                    getComputedStyle(document.documentElement)
-                    .getPropertyValue("--color-warning")
-                    .trim() || "#ffc107";
-            };
-
-            document.addEventListener("DOMContentLoaded", function() {
-                getPrimaryColor();
-            });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                initLineChart();
-            });
-        </script>
-
-        <script>
-            function initLineChart() {
-                var options = {
-                    chart: {
-                        type: "line",
-                        height: "100%",
-                        width: "100%",
-                    },
-                    series: [{
-                            name: "2025 Sales Amount",
-                            data: [5000, 7000],
-                        },
-                        {
-                            name: "2024 Sales Amount",
-                            data: [
-                                4800, 6900, 7800, 5500, 7300, 8800, 8400, 9200, 10800, 10300,
-                                9800, 11500,
-                            ],
-                        },
-                        {
-                            name: "2023 Sales Amount",
-                            data: [
-                                4600, 6800, 7700, 5300, 7100, 8600, 8200, 9000, 10500, 10100,
-                                9600, 11000,
-                            ],
-                        },
-                    ],
-                    xaxis: {
-                        categories: [
-                            "Jan",
-                            "Feb",
-                            "Mar",
-                            "Apr",
-                            "May",
-                            "Jun",
-                            "Jul",
-                            "Aug",
-                            "Sep",
-                            "Oct",
-                            "Nov",
-                            "Dec",
-                        ],
-                    },
-                    colors: [primaryColor, warningColor, dangerColor],
-                    stroke: {
-                        curve: "smooth",
-                    },
-                    tooltip: {
-                        y: {
-                            formatter: function(value) {
-                                return "$" + value;
-                            },
-                        },
-                    },
-                };
-
-                var chart = new ApexCharts(
-                    document.querySelector("#lineChart"),
-                    options,
-                );
-                chart.render();
-            }
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </x-slot>
 
+    <x-breadcrumb>
+        <x-breadcrumb-item :href="route('dashboard')" title="Dashboard"></x-breadcrumb-item>
+        <x-breadcrumb-item title="Dashboard 3" active></x-breadcrumb-item>
+    </x-breadcrumb>
+
+    <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">Dashboard 3</h1>
+
+    <!-- Colored Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+        <!-- Total Sales -->
+        <div class="stat-card stat-card-primary">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="stat-card-label">Total Sales</p>
+                    <p class="stat-card-value mt-1">$92,400</p>
+                </div>
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 0 0 4h-2a2 2 0 0 1 -1.8 -1" />
+                        <path d="M12 7v10" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Customers -->
+        <div class="stat-card stat-card-success">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="stat-card-label">New Customers</p>
+                    <p class="stat-card-value mt-1">1,284</p>
+                </div>
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M16 19h6" />
+                        <path d="M19 16v6" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refunds -->
+        <div class="stat-card stat-card-danger">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="stat-card-label">Refunds</p>
+                    <p class="stat-card-value mt-1">43</p>
+                </div>
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 14l-4 -4l4 -4" />
+                        <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversion Rate -->
+        <div class="stat-card stat-card-info">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="stat-card-label">Conversion Rate</p>
+                    <p class="stat-card-value mt-1">3.6%</p>
+                </div>
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 17l4 -4l4 4l4 -4l4 -4" />
+                        <path d="M14 7h7v7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Overview Line Chart -->
+    <div class="card mb-6">
+        <div class="p-6 pb-2">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Sales Overview</h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400">This year vs last year monthly sales</p>
+        </div>
+        <div
+            class="px-4 pb-4"
+            x-init="new ApexCharts($el, {
+                chart: { type: 'line', height: 300, toolbar: { show: false }, fontFamily: 'Lexend, sans-serif' },
+                series: [
+                    { name: 'This Year', data: [42000,55000,38000,67000,72000,58000,81000,76000,89000,94000,87000,92000] },
+                    { name: 'Last Year', data: [31000,42000,35000,51000,60000,48000,65000,61000,72000,78000,71000,80000] }
+                ],
+                xaxis: { categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] },
+                colors: ['#615fff','#9333ea'],
+                stroke: { curve: 'smooth', width: 2 },
+                dataLabels: { enabled: false },
+                grid: { borderColor: '#e2e8f0', strokeDashArray: 4 },
+                legend: { position: 'top' },
+                tooltip: { y: { formatter: v => '$' + v.toLocaleString() } }
+            }).render()"
+        ></div>
+    </div>
+
+    <!-- Products + Transactions Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Top Products -->
+        <div class="card p-5">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">Top Products</h2>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-slate-900 dark:text-slate-100">Pro Dashboard Kit</span>
+                                <span class="badge badge-primary-soft">UI Kit</span>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">$24,800</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                            <div class="bg-primary rounded-full h-1.5" style="width:82%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-slate-900 dark:text-slate-100">Analytics Plugin</span>
+                                <span class="badge badge-success-soft">Plugin</span>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">$18,350</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                            <div class="bg-success rounded-full h-1.5" style="width:61%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-slate-900 dark:text-slate-100">Component Library</span>
+                                <span class="badge badge-warning-soft">Library</span>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">$15,920</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                            <div class="bg-warning rounded-full h-1.5" style="width:53%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-slate-900 dark:text-slate-100">Icon Pack Premium</span>
+                                <span class="badge badge-info-soft">Icons</span>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">$11,200</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                            <div class="bg-info rounded-full h-1.5" style="width:37%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-slate-900 dark:text-slate-100">Email Templates</span>
+                                <span class="badge badge-danger-soft">Templates</span>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">$8,430</span>
+                        </div>
+                        <div class="bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                            <div class="bg-danger rounded-full h-1.5" style="width:28%"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="card p-5">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">Recent Transactions</h2>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-success/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 9l-4 -4" />
+                            <path d="M8 9l4 -4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Payment received from Sarah J.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 11, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-success shrink-0">+$245.00</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-danger/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-danger">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 15l-4 4" />
+                            <path d="M8 15l4 4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Refund issued to Michael C.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 10, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-danger shrink-0">-$89.99</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-success/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 9l-4 -4" />
+                            <path d="M8 9l4 -4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Subscription renewal — Emily R.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 10, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-success shrink-0">+$120.00</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-success/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 9l-4 -4" />
+                            <path d="M8 9l4 -4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">New order — David K.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 9, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-success shrink-0">+$432.00</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-danger/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-danger">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 15l-4 4" />
+                            <path d="M8 15l4 4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Chargeback — Lisa T.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 8, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-danger shrink-0">-$675.25</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-success/10 flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M16 9l-4 -4" />
+                            <path d="M8 9l4 -4" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">Upgrade plan — James W.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mar 7, 2026</p>
+                    </div>
+                    <span class="text-sm font-semibold text-success shrink-0">+$199.00</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </x-main>

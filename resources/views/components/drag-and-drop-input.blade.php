@@ -1,25 +1,49 @@
-@props(['label' => 'Drag and drop your files here or browse files'])
+@props(['description' => 'PNG, JPG, PDF up to 10MB each'])
 
-<div x-data="dropZone()" class="form-group">
-    <div @dragover.prevent="dragover = true" @dragleave.prevent="dragover = false" @drop.prevent="dropFile($event)" :class="{ 'border-primary dark:border-primary-dark': dragover }" class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+<div x-data="{
+    dragging: false,
+    files: [],
+    handleDrop(e) {
+        this.dragging = false;
+        Array.from(e.dataTransfer.files).forEach(f => this.files.push({ name: f.name, size: (f.size / 1024).toFixed(1) + ' KB' }));
+    },
+    handleSelect(e) {
+        Array.from(e.target.files).forEach(f => this.files.push({ name: f.name, size: (f.size / 1024).toFixed(1) + ' KB' }));
+    },
+    removeFile(i) { this.files.splice(i, 1); }
+}" class="form-group">
+    <div class="file-upload" :class="{ 'dragging': dragging }"
+        @dragover.prevent="dragging = true"
+        @dragleave.prevent="dragging = false"
+        @drop.prevent="handleDrop($event)"
+    >
+        <input type="file" {{ $attributes->except('description') }} @change="handleSelect($event)" aria-label="Upload files">
+        <svg xmlns="http://www.w3.org/2000/svg" class="file-upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
         </svg>
-        <p class="mt-2">{{ $label }}</p>
-        <input type="file" {{ $attributes->except('label') }} class="hidden" @change="handleFileSelect($event)" id="dropzone-file" />
-        <label for="dropzone-file" class="mt-2 inline-block cursor-pointer text-primary dark:text-primary-dark hover:underline">browse files</label>
-        <template x-if="files.length > 0">
-            <div class="mt-4">
-                <template x-for="file in files" :key="file.name">
-                    <div class="flex items-center justify-between gap-2 p-2 border rounded">
-                        <span x-text="file.name"></span>
-                        <button @click="removeFile(file)" class="text-red-500 hover:text-red-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
+        <div class="file-upload-title">Drop files here or <span class="file-upload-browse">browse</span></div>
+        <div class="file-upload-description">{{ $description }}</div>
+    </div>
+
+    <div class="file-upload-list" x-show="files.length > 0">
+        <template x-for="(file, i) in files" :key="i">
+            <div class="file-upload-item">
+                <div class="file-upload-item-info">
+                    <div class="file-upload-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
                     </div>
-                </template>
+                    <div>
+                        <div class="file-upload-item-name" x-text="file.name"></div>
+                        <div class="file-upload-item-size" x-text="file.size"></div>
+                    </div>
+                </div>
+                <button class="file-upload-item-remove" @click="removeFile(i)" aria-label="Remove file">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
             </div>
         </template>
     </div>

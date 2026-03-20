@@ -1,45 +1,92 @@
 <x-blank title="Login">
-    <div class="container mx-auto">
-        <div class="max-w-md mx-auto mt-10">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-key w-32 h-32 md:w-48 md:h-48 text-primary dark:text-primary-dark mx-auto">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z" />
-                <path d="M15 9h.01" />
-            </svg>
+    <div class="min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="w-full max-w-md">
 
-            <form action="{{ route('login.post') }}" method="POST">
-                @csrf
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Welcome Back</h2>
-                        <p class="font-normal text-slate-300 dark:text-slate-700 text-sm">
-                            Please login to continue
-                        </p>
-                    </div>
-                    <div class="card-body">
-                        <x-input name="email" label="Email" required placeholder="Email Address...."></x-input>
-                        <x-input-password name="password" :validation="false" label="Password" placeholder="Password...." required></x-input-password>
+            <div class="text-center mb-8">
+                <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 text-2xl font-bold text-primary dark:text-primary-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Fexend
+                </a>
+                <h1 class="mt-4 text-2xl font-semibold text-slate-900 dark:text-slate-100">Welcome back</h1>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Sign in to your account to continue</p>
+            </div>
 
-                        <div class="flex flex-row justify-between mt-4">
-                            <x-checkbox-input id="remember" name="remember">Remember</x-checkbox-input>
-                            <div class="">
-                                <a href="{{ route('forgot.password') }}" class="text-primary dark:text-primary-dark">Forgot Password?</a>
-                            </div>
+            <div class="card">
+                <form action="{{ route('login.post') }}" method="POST" class="space-y-5">
+                    @csrf
+
+                    <div class="form-group">
+                        <label class="label label-required" for="email">Email address</label>
+                        <div class="input-icon-left">
+                            <span class="input-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </span>
+                            <input id="email" type="email" name="email" class="input" placeholder="you@example.com" autocomplete="email" required />
                         </div>
                     </div>
 
-                    <div class="card-footer">
-                        <div class="form-group">
-                            <x-button type="submit" class="button-primary">
-                                Login
-                            </x-button>
+                    <div class="form-group" x-data="{ show: false }">
+                        <div class="flex items-center justify-between">
+                            <label class="label label-required" for="password">Password</label>
+                            <a href="{{ route('forgot.password') }}" class="text-xs text-primary dark:text-primary-dark hover:underline">Forgot password?</a>
                         </div>
-                        <div class="form-group text-center">
-                            <a href="{{ route('register') }}" class="text-primary dark:text-primary-dark">Sign Up</a>
+                        <div class="input-password">
+                            <input id="password" :type="show ? 'text' : 'password'" name="password" class="input" placeholder="••••••••" autocomplete="current-password" required />
+                            <button type="button" class="input-password-toggle" @click="show = !show" :aria-label="show ? 'Hide password' : 'Show password'">
+                                <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg x-show="show" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </form>
+
+                    <div class="flex items-center gap-2">
+                        <input id="remember" type="checkbox" name="remember" class="checkbox" />
+                        <label for="remember" class="label cursor-pointer select-none">Remember me for 30 days</label>
+                    </div>
+
+                    <button type="submit" class="button button-primary w-full">Sign in</button>
+
+                    <div class="relative flex items-center gap-3">
+                        <div class="flex-1 border-t border-slate-200 dark:border-slate-700"></div>
+                        <span class="text-xs text-slate-400 dark:text-slate-500 whitespace-nowrap">or continue with</span>
+                        <div class="flex-1 border-t border-slate-200 dark:border-slate-700"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <button type="button" class="button button-dark-outline flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                            </svg>
+                            Google
+                        </button>
+                        <button type="button" class="button button-dark-outline flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <p class="text-center mt-6 text-sm text-slate-500 dark:text-slate-400">
+                Don't have an account?
+                <a href="{{ route('register') }}" class="text-primary dark:text-primary-dark font-medium hover:underline">Create one</a>
+            </p>
+
         </div>
     </div>
 </x-blank>
