@@ -59,6 +59,11 @@ final class ForgotPasswordController extends Controller
             return redirect()->route('login')->with('error', 'Invalid token.');
         }
 
+        if ($resetPassword->expires_at < now()) {
+            $resetPassword->delete();
+            return redirect()->route('login')->with('error', 'This password reset link has expired.');
+        }
+
         return view('auth.reset-password', ['token' => $token]);
     }
 
@@ -70,6 +75,11 @@ final class ForgotPasswordController extends Controller
         $resetPassword = \App\Models\ResetPassword::where('token', $token)->first();
         if (!$resetPassword) {
             return redirect()->route('login')->with('error', 'Invalid token.');
+        }
+
+        if ($resetPassword->expires_at < now()) {
+            $resetPassword->delete();
+            return redirect()->route('login')->with('error', 'This password reset link has expired.');
         }
 
         DB::beginTransaction();

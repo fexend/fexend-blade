@@ -148,7 +148,7 @@ final class UserController extends Controller implements HasMiddleware
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => bcrypt($request->password),
+                'password' => $request->password,
             ]);
 
             if ($request->role) {
@@ -252,7 +252,7 @@ final class UserController extends Controller implements HasMiddleware
 
         try {
             $user->update([
-                'password' => bcrypt($request->password),
+                'password' => $request->password,
             ]);
         } catch (\Throwable $th) {
             $this->db->rollBack();
