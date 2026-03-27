@@ -60,7 +60,7 @@ final class ProfileController extends Controller
 
         try {
             $user = User::find($user->id);
-            $user->password = bcrypt($request->input('password'));
+            $user->password = $request->input('password');
             $user->save();
         } catch (\Throwable $th) {
             DB::rollBack();
